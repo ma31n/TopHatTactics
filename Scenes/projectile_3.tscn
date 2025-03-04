@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlg1lsk652m3e"]
+
+[ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_t5u4w"]
+[ext_resource type="Texture2D" uid="uid://dml48l80x7reb" path="res://Sprites/Tower_Based_Projectile.png" id="2_tnumd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10rvf"]
+radius = 6.0
+
+[node name="projectile_3" type="CharacterBody2D"]
+script = ExtResource("1_t5u4w")
+speed = 1000
+
+[node name="Projectile" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile"]
+shape = SubResource("CircleShape2D_10rvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tnumd")

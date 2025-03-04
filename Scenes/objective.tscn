@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://cukihyasod6he"]
+
+[ext_resource type="Texture2D" uid="uid://d4nnd6m7i38eq" path="res://Sprites/MagicHatt.png" id="1_mr277"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvolu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omicj"]
+atlas = ExtResource("1_mr277")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0yk2"]
+atlas = ExtResource("1_mr277")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh7sj"]
+atlas = ExtResource("1_mr277")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neqtm"]
+atlas = ExtResource("1_mr277")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4e4n"]
+atlas = ExtResource("1_mr277")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4f1y"]
+atlas = ExtResource("1_mr277")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwii6"]
+atlas = ExtResource("1_mr277")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q15sa"]
+atlas = ExtResource("1_mr277")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbv7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omicj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0yk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh7sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neqtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4e4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4f1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwii6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q15sa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Objective" type="CharacterBody2D"]
+
+[node name="Objective" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objective"]
+shape = SubResource("RectangleShape2D_pvolu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lbv7a")
+autoplay = "default"
+frame_progress = 0.929381

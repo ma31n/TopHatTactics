@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5e2srh0h4ygw"
+path="res://.godot/imported/Sword Slashing.ogg-19d7a594c5f2ad38f55562a2dc031628.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/Sword Slashing.ogg"
+dest_files=["res://.godot/imported/Sword Slashing.ogg-19d7a594c5f2ad38f55562a2dc031628.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

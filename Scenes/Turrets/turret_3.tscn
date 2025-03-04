@@ -1,0 +1,260 @@
+[gd_scene load_steps=23 format=3 uid="uid://c8ep200c7jr1g"]
+
+[ext_resource type="Texture2D" uid="uid://10pxsjynjp0l" path="res://Sprites/Tower_Based_Attack-Sheet.png" id="1_evruh"]
+[ext_resource type="Texture2D" uid="uid://babbrmohnic5k" path="res://Sprites/Tower_Based_Idle-Sheet.png" id="1_hvstc"]
+[ext_resource type="Script" path="res://Scripts/turret_3.gd" id="1_mbd7r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vlhy"]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vad2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgep7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vykcd"]
+atlas = ExtResource("1_evruh")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnrie"]
+atlas = ExtResource("1_evruh")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6rrt"]
+atlas = ExtResource("1_evruh")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrius"]
+atlas = ExtResource("1_evruh")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjada"]
+atlas = ExtResource("1_evruh")
+region = Rect2(576, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyaur"]
+atlas = ExtResource("1_evruh")
+region = Rect2(640, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or0x5"]
+atlas = ExtResource("1_evruh")
+region = Rect2(704, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uts1"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8468"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh81m"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sden8"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7jef"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co06f"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkiir"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv141"]
+atlas = ExtResource("1_hvstc")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwaer"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vykcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnrie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6rrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrius")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjada")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyaur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or0x5")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uts1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8468")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh81m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sden8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7jef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co06f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkiir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv141")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Turret3" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_mbd7r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2vlhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vad2n")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_xgep7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_vwaer")
+animation = &"attack"
+offset = Vector2(-11, 0)
+
+[node name="StunTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="TabContainer" type="TabContainer" parent="."]
+visible = false
+offset_left = -77.0
+offset_top = -128.0
+offset_right = 123.0
+offset_bottom = 22.0
+scale = Vector2(0.8, 0.8)
+current_tab = 0
+
+[node name="PATH1" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PATH1"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 104.0
+
+[node name="Buttons" type="HBoxContainer" parent="TabContainer/PATH1/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LVL1" type="Button" parent="TabContainer/PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL1"
+
+[node name="LVL2" type="Button" parent="TabContainer/PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL2"
+
+[node name="LVL3" type="Button" parent="TabContainer/PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL3
+"
+
+[node name="INFO" type="RichTextLabel" parent="TabContainer/PATH1/VBoxContainer"]
+layout_mode = 2
+text = "This is info about the upgrade.
+COST: 100MP"
+fit_content = true
+
+[node name="PATH2" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PATH2"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 104.0
+
+[node name="Buttons" type="HBoxContainer" parent="TabContainer/PATH2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LVL1" type="Button" parent="TabContainer/PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL1"
+
+[node name="LVL2" type="Button" parent="TabContainer/PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL2"
+
+[node name="LVL3" type="Button" parent="TabContainer/PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL3"
+
+[node name="INFO" type="RichTextLabel" parent="TabContainer/PATH2/VBoxContainer"]
+layout_mode = 2
+text = "This is info about the upgrade.
+COST: 100MP"
+fit_content = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH2"]]
+[connection signal="mouse_entered" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH2"]]
+[connection signal="mouse_entered" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH2"]]

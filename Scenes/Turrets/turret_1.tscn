@@ -1,0 +1,276 @@
+[gd_scene load_steps=26 format=3 uid="uid://dwesnj5ar3b04"]
+
+[ext_resource type="Script" path="res://Scripts/turret_1.gd" id="1_l7ity"]
+[ext_resource type="Texture2D" uid="uid://da6p0q268xrwe" path="res://Sprites/Tower_Wizard_Attack.png" id="2_3dxbn"]
+[ext_resource type="Texture2D" uid="uid://376sylo4wm3q" path="res://Sprites/Tower_Wizard_Idle-Sheet.png" id="2_bn5qp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6hb7"]
+radius = 71.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pagsv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3loyo"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hj1i"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(32, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mldl"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(64, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4mrm"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(96, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqy1y"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(128, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obv5y"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(160, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n204m"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(192, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lji01"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(224, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pdsp"]
+atlas = ExtResource("2_3dxbn")
+region = Rect2(256, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgekt"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgeml"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqshc"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymqbc"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4vyd"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hntmr"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pjre"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvnil"]
+atlas = ExtResource("2_bn5qp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ne3q2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3loyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hj1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mldl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4mrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqy1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n204m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lji01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pdsp")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgekt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgeml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqshc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymqbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4vyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hntmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pjre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvnil")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="Theme" id="Theme_srbwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu8qj"]
+
+[node name="Turret1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_l7ity")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s6hb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pagsv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ne3q2")
+animation = &"idle"
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
+
+[node name="TabContainer" type="TabContainer" parent="."]
+visible = false
+offset_left = -77.0
+offset_top = -128.0
+offset_right = 123.0
+offset_bottom = 22.0
+scale = Vector2(0.8, 0.8)
+theme = SubResource("Theme_srbwl")
+current_tab = 0
+
+[node name="PATH1" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PATH1"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 69.0
+
+[node name="Buttons" type="HBoxContainer" parent="TabContainer/PATH1/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LVL1" type="Button" parent="TabContainer/PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL1"
+
+[node name="LVL2" type="Button" parent="TabContainer/PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL2"
+
+[node name="LVL3" type="Button" parent="TabContainer/PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL3"
+
+[node name="INFO" type="RichTextLabel" parent="TabContainer/PATH1/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is info about the upgrade.
+COST: 100MP"
+fit_content = true
+
+[node name="PATH2" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PATH2"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 69.0
+
+[node name="Buttons" type="HBoxContainer" parent="TabContainer/PATH2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LVL1" type="Button" parent="TabContainer/PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL1"
+
+[node name="LVL2" type="Button" parent="TabContainer/PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL2"
+
+[node name="LVL3" type="Button" parent="TabContainer/PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "LVL3"
+
+[node name="INFO" type="RichTextLabel" parent="TabContainer/PATH2/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is info about the upgrade.
+COST: 10MP"
+fit_content = true
+
+[node name="StunTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_fu8qj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH1/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH2"]]
+[connection signal="mouse_entered" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH2"]]
+[connection signal="mouse_entered" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
+[connection signal="pressed" from="TabContainer/PATH2/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH2"]]

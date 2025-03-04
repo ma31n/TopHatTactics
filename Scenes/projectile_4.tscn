@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://uih1f0wo5mf0"]
+
+[ext_resource type="Texture2D" uid="uid://dt46327rv7g8y" path="res://Sprites/FX_Slash-Sheet.png" id="1_bnp03"]
+[ext_resource type="Script" path="res://Scripts/projectile_4.gd" id="1_ouu6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqd06"]
+size = Vector2(30, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6anb"]
+atlas = ExtResource("1_bnp03")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywiyw"]
+atlas = ExtResource("1_bnp03")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgihi"]
+atlas = ExtResource("1_bnp03")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pokq6"]
+atlas = ExtResource("1_bnp03")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yjrw"]
+atlas = ExtResource("1_bnp03")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhtl6"]
+atlas = ExtResource("1_bnp03")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnxm7"]
+atlas = ExtResource("1_bnp03")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ed2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6anb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywiyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgihi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pokq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yjrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhtl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnxm7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="projectile_4" type="CharacterBody2D"]
+script = ExtResource("1_ouu6e")
+
+[node name="Projectile" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_oqd06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8ed2j")
+frame = 6
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cc413l832b0jx"]
+
+[node name="TabContainer" type="TabContainer"]
+offset_left = -93.0
+offset_top = -165.0
+offset_right = 107.0
+offset_bottom = -15.0
+scale = Vector2(0.8, 0.8)
+current_tab = 0
+
+[node name="PATH1" type="TabBar" parent="."]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PATH1"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 69.0
+
+[node name="Buttons" type="HBoxContainer" parent="PATH1/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LVL1" type="Button" parent="PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL1"
+
+[node name="LVL2" type="Button" parent="PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL2"
+
+[node name="LVL3" type="Button" parent="PATH1/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL3"
+
+[node name="INFO" type="RichTextLabel" parent="PATH1/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is info about the upgrade.
+COST: 100MP"
+fit_content = true
+
+[node name="PATH2" type="TabBar" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PATH2"]
+offset_right = 200.0
+offset_bottom = 69.0
+
+[node name="Buttons" type="HBoxContainer" parent="PATH2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LVL1" type="Button" parent="PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL1"
+
+[node name="LVL2" type="Button" parent="PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL2"
+
+[node name="LVL3" type="Button" parent="PATH2/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "LVL3"
+
+[node name="INFO" type="RichTextLabel" parent="PATH2/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is info about the upgrade.
+COST: 10MP"
+fit_content = true
