@@ -12,7 +12,7 @@ func _ready() -> void:
 	$RichTextLabel.text=lines[0][0]
 	
 func _physics_process(delta: float) -> void:
-	if(Global.levelscompleted<=3):
+	if(Global.levelscompleted<3):
 		if (Input.is_action_just_pressed("ui_accept")):
 			if(current<lines.size()-1):
 				current+=1
@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 				get_node(str(current+1)).visible=true;
 			else:
 				get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
-	elif(Global.levelscompleted>3):
+	elif(Global.levelscompleted>=3):
 		$RichTextLabel.text=final[0]
 		$Sprite2D.visible=true
 		

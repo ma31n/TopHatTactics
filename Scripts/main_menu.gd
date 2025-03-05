@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	elif(Global.levelscompleted>=1):
 		$Control/VBoxContainer/Level2.disabled=false;
 		
-	if(Global.levelscompleted>3):
+	if(Global.levelscompleted>=3):
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 
 
