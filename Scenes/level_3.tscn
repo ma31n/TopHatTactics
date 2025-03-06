@@ -41,9 +41,9 @@ script = ExtResource("1_0vt2t")
 level = 3
 
 [node name="Label" type="Label" parent="."]
-offset_left = 95.0
+offset_left = 90.0
 offset_top = 5.0
-offset_right = 135.0
+offset_right = 130.0
 offset_bottom = 28.0
 
 [node name="Currency" type="Label" parent="."]
@@ -81,12 +81,11 @@ text = "RETRY"
 [node name="win" type="Button" parent="ColorRect"]
 visible = false
 layout_mode = 0
-offset_left = 122.0
+offset_left = 100.0
 offset_top = 100.0
-offset_right = 209.0
+offset_right = 191.0
 offset_bottom = 131.0
-text = "YOU WON
-"
+text = "CONTINUE"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pd874")

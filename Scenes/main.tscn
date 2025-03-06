@@ -59,9 +59,9 @@ process_callback = 0
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 71.0
+offset_left = 90.0
 offset_top = 4.0
-offset_right = 111.0
+offset_right = 130.0
 offset_bottom = 27.0
 
 [node name="turret_1" parent="." instance=ExtResource("5_x22he")]
@@ -129,11 +129,11 @@ text = "RETRY"
 [node name="win" type="Button" parent="ColorRect"]
 visible = false
 layout_mode = 0
-offset_left = 122.0
+offset_left = 100.0
 offset_top = 100.0
-offset_right = 209.0
+offset_right = 191.0
 offset_bottom = 131.0
-text = "YOU WON"
+text = "CONTINUE"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0ikif")

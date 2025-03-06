@@ -79,16 +79,16 @@ text = "RETRY"
 [node name="win" type="Button" parent="ColorRect"]
 visible = false
 layout_mode = 0
-offset_left = 122.0
+offset_left = 100.0
 offset_top = 100.0
-offset_right = 130.0
-offset_bottom = 108.0
-text = "YOU WON"
+offset_right = 191.0
+offset_bottom = 131.0
+text = "CONTINUE"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 95.0
+offset_left = 90.0
 offset_top = 5.0
-offset_right = 135.0
+offset_right = 130.0
 offset_bottom = 28.0
 
 [node name="Currency" type="Label" parent="."]
