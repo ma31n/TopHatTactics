@@ -143,9 +143,9 @@ shape = SubResource("CircleShape2D_2vlhy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vad2n")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="Turret" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret"]
 shape = SubResource("RectangleShape2D_xgep7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

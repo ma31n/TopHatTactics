@@ -227,9 +227,9 @@ shape = SubResource("CircleShape2D_vqwyq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_oa4xn")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="Turret" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret"]
 shape = SubResource("RectangleShape2D_q3x65")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

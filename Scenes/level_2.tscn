@@ -164,6 +164,11 @@ offset_top = 234.0
 offset_right = 537.0
 offset_bottom = 274.0
 
+[node name="Unplaceable" type="Area2D" parent="."]
+
+[node name="Unplaceable" type="CollisionPolygon2D" parent="Unplaceable"]
+polygon = PackedVector2Array(40, -3, 40, 120, 216, 120, 216, 168, 40, 168, 40, 312, 264, 312, 264, 264, 344, 264, 344, 311, 344, 312, 536, 312, 536, 168, 376, 168, 376, 120, 536, 120, 536, -2, 504, -2, 504, 88, 344, 88, 344, 200, 504, 200, 504, 280, 376, 280, 376, 232, 232, 232, 232, 280, 72, 280, 72, 200, 247, 200, 248, 200, 248, 88, 72, 88, 72, -1)
+
 [connection signal="pressed" from="ColorRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="ColorRect/win" to="." method="_on_win_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

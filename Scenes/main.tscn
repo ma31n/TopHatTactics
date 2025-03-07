@@ -156,6 +156,11 @@ offset_right = 558.0
 offset_bottom = 335.0
 text = "50 EACH"
 
+[node name="Unplaceable" type="Area2D" parent="."]
+
+[node name="Unplaceable" type="CollisionPolygon2D" parent="Unplaceable"]
+polygon = PackedVector2Array(-59, 279, -48, 280, 137, 280, 137, 184, 263, 184, 263, 281, 312, 281, 312, 184, 408, 184, 408, 104, 312, 104, 312, 151, 57, 151, 57, 104, -103, 104, -103, 72, -79, 72, 87, 72, 87, 120, 280, 120, 280, 73, 440, 73, 440, 216, 344, 216, 344, 312, 233, 312, 233, 215, 168, 215, 168, 311, -50, 311)
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Finish" to="." method="_on_finish_area_entered"]

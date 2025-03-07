@@ -19,8 +19,13 @@ func _physics_process(delta: float) -> void:
 				$RichTextLabel.text=lines[current][0]
 				get_node(str(current+1)).visible=true;
 			else:
+				Global.musictime=$AudioStreamPlayer2D.get_playback_position();
 				get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	elif(Global.levelscompleted>=3):
 		$RichTextLabel.text=final[0]
 		$Sprite2D.visible=true
+		if(Input.is_action_just_pressed("ui_accept")):
+			Global.levelscompleted+=1;
+			Global.musictime=$AudioStreamPlayer2D.get_playback_position();
+			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn");
 		

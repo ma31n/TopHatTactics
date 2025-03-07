@@ -27,7 +27,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	death()
 	
-	if stun==true and $Stun.is_stopped():
+	if stun==true and $Stun.is_stopped() and enemies[self.name][2]!=1:
 		if(self.name!="EnemyJesterHat"):
 			$Stun.start(stun_length)
 			get_parent().stun=0

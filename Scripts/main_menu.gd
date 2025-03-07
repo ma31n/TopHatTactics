@@ -2,7 +2,8 @@ extends Node2D
 
 var enemies = ["EnemyTopHat","EnemyHardHat","EnemyPropellerHat","EnemyFootballHat","EnemyPilotHat","EnemyJesterHat"]
 func _ready() -> void:
-	pass
+	$AudioStreamPlayer2D.stream=load("res://Top Hat Tactics Menu.ogg");
+	$AudioStreamPlayer2D.play(Global.musictime)
 
 func _physics_process(delta: float) -> void:
 	if(Global.levelscompleted>=2):
@@ -11,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	elif(Global.levelscompleted>=1):
 		$Control/VBoxContainer/Level2.disabled=false;
 		
-	if(Global.levelscompleted>=3):
+	if(Global.levelscompleted==3):
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 
 

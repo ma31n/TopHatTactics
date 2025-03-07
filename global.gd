@@ -6,4 +6,6 @@ var oglevelscompleted = 0;
 
 var gamestate = -1;
 var MP = 200
-var levelscompleted = 0;
+var levelscompleted = 3;
+
+var musictime=0;

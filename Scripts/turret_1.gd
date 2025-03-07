@@ -9,6 +9,7 @@ var damage = 1
 var airvis = 0;
 var pierce = false;
 var tab;
+var placeable = false;
 var upgrades = [
 	[
 		{"price":10,"desc":"Range 1","state":0,"new":80},
@@ -26,6 +27,10 @@ func _ready() -> void:
 	$AudioStreamPlayer2D.play()
 
 func _physics_process(delta: float) -> void:
+	
+	if(dropped==false):
+		placement_check();
+	
 	tab = $TabContainer.current_tab
 	if(!$AnimatedSprite2D.is_playing()):
 		$AnimatedSprite2D.play("idle")
@@ -59,16 +64,19 @@ func _on_timer_timeout() -> void:
 	rdy = true;
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true):
 		dropped=true
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
 		$TabContainer.visible=!$TabContainer.visible
 
 func _draw() -> void:
 	if(dropped==false or $TabContainer.visible):
-		draw_circle(Vector2(0,0),$Area2D/CollisionShape2D.shape.radius,Color(0,0,0,0.5))
+		if(placeable==true):
+			draw_circle(Vector2(0,0),$Area2D/CollisionShape2D.shape.radius,Color(0,0,0,0.5))
+		else:
+			draw_circle(Vector2(0,0),$Area2D/CollisionShape2D.shape.radius,Color(255,0,0,0.5))
 	else:
 		pass
 
@@ -115,7 +123,16 @@ func _on_lvl_3_pressed(path) -> void:
 		get_node("TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=true;
 
 func stunning():
-	var areas = $Area2D2.get_overlapping_areas()
+	var areas = $Turret.get_overlapping_areas()
 	for area in areas:
 		if area.name=="AOE" and $StunTimer.is_stopped():
 			$StunTimer.start()
+
+func placement_check():
+	var bodies = $Turret.get_overlapping_areas();
+	for body in bodies:
+		if(body.name=="Unplaceable" or body.name=="Turret"):
+			placeable=false;
+			break;
+		else:
+			placeable=true;
