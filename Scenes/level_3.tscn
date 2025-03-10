@@ -137,10 +137,10 @@ position = Vector2(518, -81)
 shape = SubResource("RectangleShape2D_anwre")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 493.0
-offset_top = 312.0
-offset_right = 558.0
-offset_bottom = 335.0
+offset_left = 491.0
+offset_top = 213.0
+offset_right = 556.0
+offset_bottom = 236.0
 text = "50 EACH"
 
 [node name="turret_1" parent="." instance=ExtResource("5_vhi34")]

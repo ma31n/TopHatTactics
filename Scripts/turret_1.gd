@@ -64,8 +64,10 @@ func _on_timer_timeout() -> void:
 	rdy = true;
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true):
+	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true and dropped==false):
 		dropped=true
+		Global.MP=Global.MP-50;
+		Global.cancel=false;
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
@@ -130,7 +132,11 @@ func stunning():
 
 func placement_check():
 	var bodies = $Turret.get_overlapping_areas();
+	
 	for body in bodies:
+		if(body.name=="Cancel"):
+			Global.cancel=false;
+			queue_free()
 		if(body.name=="Unplaceable" or body.name=="Turret"):
 			placeable=false;
 			break;

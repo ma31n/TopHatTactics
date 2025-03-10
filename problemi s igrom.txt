@@ -11,11 +11,11 @@
 -fedora može stunnat air enemies+
 -kape se mogu stavit na path i preblizu jedne druge+
 -Uvodna pisma se ponovi nakon cutscena i kad se dođe na main menu+
+-ne može se kancelirat stavljanje kape+
+-Kapa se automatski kupi čim se klikne ikona a ne kad se stavi+
 
 
 -treba nerfat wizard hat
--Kapa se automatski kupi čim se klikne ikona a ne kad se stavi
--ne može se kancelirat stavljanje kape
 -ne mogu se prodat kape
 -ikone i 50 each nisu dobro postavljeni
 -podesit sound effects, neki su preglasni (Cough cough baseball) 

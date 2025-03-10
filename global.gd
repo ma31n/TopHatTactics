@@ -9,3 +9,5 @@ var MP = 200
 var levelscompleted = 3;
 
 var musictime=0;
+
+var cancel = false;

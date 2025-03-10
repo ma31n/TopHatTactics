@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ddu7c5a5f717a"]
+[gd_scene load_steps=15 format=4 uid="uid://ddu7c5a5f717a"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jmla6"]
 [ext_resource type="PackedScene" uid="uid://cukihyasod6he" path="res://Scenes/objective.tscn" id="1_lk6rx"]
@@ -9,6 +9,8 @@
 [ext_resource type="TileSet" uid="uid://d3j3tms7v4la8" path="res://Scenes/tilemap.tres" id="8_7wlo4"]
 [ext_resource type="PackedScene" uid="uid://rjuyenln75vs" path="res://Scenes/Dragables/dragable_button4.tscn" id="8_i1fdj"]
 [ext_resource type="AudioStream" uid="uid://c1m4a1xnnypsv" path="res://Top Hat Tactics Gameplay.ogg" id="9_b0tp6"]
+[ext_resource type="PackedScene" uid="uid://cw6a5haal0yq8" path="res://Scenes/cancel.tscn" id="10_ilidf"]
+[ext_resource type="Script" path="res://Scripts/cancel.gd" id="11_03wmw"]
 
 [sub_resource type="Curve2D" id="Curve2D_xw07t"]
 _data = {
@@ -150,16 +152,19 @@ stream = ExtResource("9_b0tp6")
 autoplay = true
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 493.0
-offset_top = 312.0
-offset_right = 558.0
-offset_bottom = 335.0
+offset_left = 492.0
+offset_top = 206.0
+offset_right = 557.0
+offset_bottom = 229.0
 text = "50 EACH"
 
 [node name="Unplaceable" type="Area2D" parent="."]
 
 [node name="Unplaceable" type="CollisionPolygon2D" parent="Unplaceable"]
 polygon = PackedVector2Array(-59, 279, -48, 280, 137, 280, 137, 184, 263, 184, 263, 281, 312, 281, 312, 184, 408, 184, 408, 104, 312, 104, 312, 151, 57, 151, 57, 104, -103, 104, -103, 72, -79, 72, 87, 72, 87, 120, 280, 120, 280, 73, 440, 73, 440, 216, 344, 216, 344, 312, 233, 312, 233, 215, 168, 215, 168, 311, -50, 311)
+
+[node name="Cancel" parent="." instance=ExtResource("10_ilidf")]
+script = ExtResource("11_03wmw")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

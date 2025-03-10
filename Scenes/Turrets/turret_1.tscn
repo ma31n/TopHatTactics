@@ -169,7 +169,6 @@ wait_time = 0.5
 one_shot = true
 
 [node name="TabContainer" type="TabContainer" parent="."]
-visible = false
 offset_left = -77.0
 offset_top = -128.0
 offset_right = 123.0
