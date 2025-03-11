@@ -11,3 +11,16 @@ var levelscompleted = 3;
 var musictime=0;
 
 var cancel = false;
+
+var musiclevel=0;
+
+var sfxlevel=0;
+
+func _physics_process(delta: float) -> void:
+	var songs = get_tree().get_nodes_in_group("Music");
+	for song in songs:
+		song.volume_db=musiclevel;
+	
+	var sfx = get_tree().get_nodes_in_group("SFX");
+	for sound in sfx:
+		sound.volume_db=sfxlevel;

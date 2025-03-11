@@ -6,6 +6,17 @@ func _ready() -> void:
 	$AudioStreamPlayer2D.play(Global.musictime)
 
 func _physics_process(delta: float) -> void:
+	
+	if($Control/MusicVol.value>=$Control/MusicVol.step):
+		Global.musiclevel = -$Control/MusicVol.max_value+$Control/MusicVol.value;
+	else:
+		Global.musiclevel = -100;
+	
+	if($Control/SFXVol.value>=$Control/SFXVol.step):
+		Global.sfxlevel = -$Control/SFXVol.max_value+$Control/SFXVol.value;
+	else:
+		Global.sfxlevel = -100;
+	
 	if(Global.levelscompleted>=2):
 		$Control/VBoxContainer/Level3.disabled=false;
 		$Control/VBoxContainer/Level2.disabled=false;

@@ -13,17 +13,16 @@
 -Uvodna pisma se ponovi nakon cutscena i kad se dođe na main menu+
 -ne može se kancelirat stavljanje kape+
 -Kapa se automatski kupi čim se klikne ikona a ne kad se stavi+
-
+-ne mogu se prodat kape+
+-volume slider+
 
 -treba nerfat wizard hat
--ne mogu se prodat kape
 -ikone i 50 each nisu dobro postavljeni
 -podesit sound effects, neki su preglasni (Cough cough baseball) 
 -sound fatigue (bilo bi dobro da npr kad wizard hat puca da se malo randomizira pitch svaki put i slično)
 -font i ui je poopoo
 -nema sfx kada se kliknu botuni i kada wave pocne
--volume slider 
 -mozda ukrasit malo levele da nisu barebones toliko
 -poboljšat UI da nije toliko confusing I messy
 -podesit cijene za upgrades
--ima jos glitcheva koje san nasa
+-upgrade se primjeni na svaki instance enemyja

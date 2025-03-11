@@ -25,6 +25,11 @@ window/size/viewport_width=576
 window/size/viewport_height=324
 window/stretch/mode="viewport"
 
+[global_group]
+
+Music=""
+SFX=""
+
 [input]
 
 ui_accept={

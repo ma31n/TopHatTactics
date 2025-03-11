@@ -29,7 +29,7 @@ func _ready() -> void:
 	$AudioStreamPlayer2D.play()
 
 func _physics_process(delta: float) -> void:
-	tab = $TabContainer.current_tab
+	tab = $Control/TabContainer.current_tab
 	if(!$AnimatedSprite2D.is_playing()):
 		$AnimatedSprite2D.play("idle")
 	
@@ -79,10 +79,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
-		$TabContainer.visible=!$TabContainer.visible
+		$Control.visible=!$Control.visible
 
 func _draw() -> void:
-	if(dropped==false or $TabContainer.visible):
+	if(dropped==false or $Control.visible):
 		if(placeable==true):
 			draw_circle(Vector2(0,0),$Area2D/CollisionShape2D.shape.radius,Color(0,0,0,0.5))
 		else:
@@ -100,8 +100,8 @@ func _on_lvl_3_mouse_entered() -> void:
 	showbuttons(2)
 
 func showbuttons(lvl):
-	var tab = $TabContainer.current_tab
-	get_node("TabContainer/PATH"+str(tab+1)+"/VBoxContainer/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
+	var tab = $Control/TabContainer.current_tab
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/VBoxContainer/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
 	
 func buy_upgrade(lvl):
 	var bought = false;
@@ -116,21 +116,21 @@ func buy_upgrade(lvl):
 func _on_lvl_1_pressed(path) -> void:
 	var bought = buy_upgrade(0)
 	if(bought==true):
-		get_node("TabContainer/"+path+"/VBoxContainer/Buttons/LVL1").disabled=true;
-		get_node("TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=false;
+		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL1").disabled=true;
+		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=false;
 	
 func _on_lvl_2_pressed(path) -> void:
 	var bought = buy_upgrade(1)
 	if(bought==true):
-		get_node("TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=true;
-		get_node("TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=false;
+		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=true;
+		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=false;
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"]):
 		match tab:
 			0: projscale=1.5;
 			1: $Area2D/CollisionShape2D.shape.radius=1000;
-		get_node("TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=true;
+		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=true;
 
 func stunning():
 	var areas = $Turret.get_overlapping_areas()
@@ -151,3 +151,8 @@ func placement_check():
 			break;
 		else:
 			placeable=true;
+
+
+func _on_sell_button_pressed() -> void:
+		Global.MP+=50;
+		queue_free();
