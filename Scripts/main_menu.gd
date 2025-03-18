@@ -43,12 +43,15 @@ func _on_timer_timeout() -> void:
 
 
 func _on_level_1_pressed() -> void:
+	$MenuSFX.play()
 	get_tree().change_scene_to_file("res://Scenes/main.tscn");
 
 
 func _on_level_2_pressed() -> void:
+	$MenuSFX.play()
 	get_tree().change_scene_to_file("res://Scenes/level_2.tscn");
 
 
 func _on_level_3_pressed() -> void:
+	$MenuSFX.play()
 	get_tree().change_scene_to_file("res://Scenes/level_3.tscn");

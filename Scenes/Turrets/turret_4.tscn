@@ -1,11 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://7n7r0qabl4kf"]
+[gd_scene load_steps=36 format=3 uid="uid://7n7r0qabl4kf"]
 
 [ext_resource type="Script" path="res://Scripts/turret_4.gd" id="1_2lj55"]
 [ext_resource type="Texture2D" uid="uid://dwme4pkeepye3" path="res://Sprites/Tower_Samurai_Idle-Sheet.png" id="1_fpx28"]
 [ext_resource type="Texture2D" uid="uid://bicp2lf8gqeay" path="res://Sprites/Tower_Samurai_Attack-Sheet.png" id="2_3mabk"]
+[ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="4_ghd6v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqwyq"]
-radius = 55.0364
+radius = 55.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oa4xn"]
 
@@ -262,6 +263,7 @@ offset_right = 40.0
 offset_bottom = 30.0
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 0
 offset_left = -77.0
 offset_top = -128.0
 offset_right = 123.0
@@ -336,12 +338,17 @@ fit_content = true
 
 [node name="SellButton" type="Button" parent="Control"]
 modulate = Color(1, 0, 0, 1)
+layout_mode = 0
 offset_left = 83.0
 offset_top = -103.0
 offset_right = 127.0
 offset_bottom = 16.0
 scale = Vector2(0.8, 0.8)
 text = "SELL"
+
+[node name="MenuSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ghd6v")
+max_polyphony = 10000
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

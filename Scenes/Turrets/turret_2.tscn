@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://lsn6qrjnqq6k"]
+[gd_scene load_steps=20 format=3 uid="uid://lsn6qrjnqq6k"]
 
 [ext_resource type="Script" path="res://Scripts/turret_2.gd" id="1_m12lv"]
 [ext_resource type="Texture2D" uid="uid://d031swqxd4krq" path="res://Sprites/Tower_Fedora_idle-Sheet.png" id="1_w2hja"]
 [ext_resource type="Texture2D" uid="uid://c8k8euqo2jqrs" path="res://Sprites/Tower_Fedora_Attack.png" id="2_ig8v8"]
+[ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="4_hldvi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xc5mg"]
-radius = 39.0128
+radius = 40.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr76t"]
 
@@ -147,6 +148,7 @@ offset_right = 40.0
 offset_bottom = 30.0
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 0
 offset_left = -77.0
 offset_top = -128.0
 offset_right = 123.0
@@ -223,12 +225,17 @@ fit_content = true
 
 [node name="SellButton" type="Button" parent="Control"]
 modulate = Color(1, 0, 0, 1)
+layout_mode = 0
 offset_left = 83.0
 offset_top = -103.0
 offset_right = 127.0
 offset_bottom = 16.0
 scale = Vector2(0.8, 0.8)
 text = "SELL"
+
+[node name="MenuSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hldvi")
+max_polyphony = 10000
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

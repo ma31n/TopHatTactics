@@ -136,41 +136,41 @@ shape = SubResource("RectangleShape2D_anwre")
 position = Vector2(518, -81)
 shape = SubResource("RectangleShape2D_anwre")
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 491.0
-offset_top = 213.0
-offset_right = 556.0
-offset_bottom = 236.0
-text = "50 EACH"
-
-[node name="turret_1" parent="." instance=ExtResource("5_vhi34")]
-offset_left = 534.0
-offset_top = 281.0
-offset_right = 567.0
-offset_bottom = 315.0
-
-[node name="turret_2" parent="." instance=ExtResource("6_sn57l")]
-offset_left = 480.0
-offset_top = 279.0
-offset_right = 520.0
-offset_bottom = 319.0
-
-[node name="turret_3" parent="." instance=ExtResource("7_ec41b")]
-offset_left = 526.0
-offset_top = 231.0
-offset_right = 566.0
-offset_bottom = 271.0
-
-[node name="turret_4" parent="." instance=ExtResource("8_mjijq")]
-offset_left = 480.0
-offset_top = 233.0
-offset_right = 528.0
-offset_bottom = 273.0
-
 [node name="Unplaceable" type="Area2D" parent="."]
 
 [node name="Unplaceable" type="CollisionPolygon2D" parent="Unplaceable"]
 polygon = PackedVector2Array(56, -16, 56, 88, 184, 88, 184, 120, 56, 120, 56, 216, 184, 216, 184, 296, 280, 296, 280, 40, 312, 40, 312, 296, 440, 296, 440, 216, 536, 216, 536, 120, 440, 120, 440, 72, 536, 72, 536, -3, 504, -3, 504, 40, 408, 40, 408, 152, 504, 152, 504, 184, 408, 184, 408, 264, 344, 264, 344, 8, 248, 8, 248, 264, 216, 264, 216, 184, 88, 184, 88, 152, 216, 152, 216, 56, 88, 56, 88, -16)
+
+[node name="ICONS" type="ColorRect" parent="."]
+offset_left = 476.0
+offset_top = 224.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 0.658824)
+
+[node name="turret_1" parent="ICONS" instance=ExtResource("5_vhi34")]
+offset_left = 65.0
+offset_top = 48.0
+offset_right = 98.0
+offset_bottom = 82.0
+
+[node name="turret_2" parent="ICONS" instance=ExtResource("6_sn57l")]
+offset_top = 48.0
+offset_bottom = 88.0
+
+[node name="turret_3" parent="ICONS" instance=ExtResource("7_ec41b")]
+offset_left = 60.0
+offset_right = 100.0
+
+[node name="turret_4" parent="ICONS" instance=ExtResource("8_mjijq")]
+offset_right = 48.0
+
+[node name="Label2" type="Label" parent="ICONS"]
+offset_left = 18.0
+offset_top = 78.0
+offset_right = 83.0
+offset_bottom = 101.0
+text = "50 EACH"
 
 [connection signal="pressed" from="ColorRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="ColorRect/win" to="." method="_on_win_pressed"]

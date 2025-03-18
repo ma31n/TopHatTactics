@@ -17,14 +17,14 @@ var placeable=false;
 var tab;
 var upgrades = [
 	[
-		{"price":10,"desc":"Speed 1","state":0,"new":1},
-		{"price":20,"desc":"Speed 2", "state":0, "new": 0.8},
-		{"price":50,"desc":"Attacks multiple enemies."}
+		{"price":20,"desc":"Speed 1","state":0,"new":1},
+		{"price":30,"desc":"Speed 2", "state":0, "new": 0.8},
+		{"price":60,"desc":"Attacks multiple enemies."}
 	],
 	[
-		{"price":10, "desc":"Damage 1","new":8},
-		{"price":20, "desc": "Damage 2","new":9},
-		{"price":50, "desc": "Insta kill every 10sec."}
+		{"price":20, "desc":"Damage 1","new":8},
+		{"price":30, "desc": "Damage 2","new":9},
+		{"price":60, "desc": "Insta kill every 10sec."}
 	]
 ]
 func _ready() -> void:
@@ -67,12 +67,14 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true and dropped==false):
+		$MenuSFX.play()
 		dropped=true
 		Global.MP=Global.MP-50;
 		Global.cancel=false;
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
+		$MenuSFX.play()
 		$Control.visible=!$Control.visible
 
 func _draw() -> void:
@@ -110,17 +112,20 @@ func buy_upgrade(lvl):
 func _on_lvl_1_pressed(path) -> void:
 	var bought = buy_upgrade(0)
 	if(bought==true):
+		$MenuSFX.play()
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL1").disabled=true;
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=false;
 	
 func _on_lvl_2_pressed(path) -> void:
 	var bought = buy_upgrade(1)
 	if(bought==true):
+		$MenuSFX.play()
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=true;
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=false;
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"]):
+		$MenuSFX.play()
 		match tab:
 			0: upgrade = true;
 			1: $Instakill.start()
@@ -168,5 +173,6 @@ func placement_check():
 
 
 func _on_sell_button_pressed() -> void:
+		$MenuSFX.play()
 		Global.MP+=50;
 		queue_free();

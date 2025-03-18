@@ -14,14 +14,14 @@ var tab;
 var placeable = false;
 var upgrades = [
 	[
-		{"price":10,"desc":"Speed 1","state":0,"new":1.5},
-		{"price":20,"desc":"Speed 2", "state":0, "new": 1},
-		{"price":50,"desc":"Splash damage."}
+		{"price":20,"desc":"Speed 1","state":0,"new":1.5},
+		{"price":30,"desc":"Speed 2", "state":0, "new": 1},
+		{"price":60,"desc":"Splash damage."}
 	],
 	[
-		{"price":10, "desc":"Range 1","new":120},
-		{"price":20, "desc": "Range 2","new":150},
-		{"price":50, "desc": "Infinite range"}
+		{"price":20, "desc":"Range 1","new":120},
+		{"price":30, "desc": "Range 2","new":150},
+		{"price":60, "desc": "Infinite range"}
 	]
 ]
 func _ready() -> void:
@@ -73,6 +73,7 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true and dropped==false):
+		$MenuSFX.play()
 		dropped=true
 		Global.MP=Global.MP-50;
 		Global.cancel=false;
@@ -80,6 +81,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
 		$Control.visible=!$Control.visible
+		$MenuSFX.play()
 
 func _draw() -> void:
 	if(dropped==false or $Control.visible):
@@ -116,17 +118,20 @@ func buy_upgrade(lvl):
 func _on_lvl_1_pressed(path) -> void:
 	var bought = buy_upgrade(0)
 	if(bought==true):
+		$MenuSFX.play()
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL1").disabled=true;
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=false;
 	
 func _on_lvl_2_pressed(path) -> void:
 	var bought = buy_upgrade(1)
 	if(bought==true):
+		$MenuSFX.play()
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=true;
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=false;
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"]):
+		$MenuSFX.play()
 		match tab:
 			0: projscale=1.5;
 			1: $Area2D/CollisionShape2D.shape.radius=1000;
@@ -154,5 +159,6 @@ func placement_check():
 
 
 func _on_sell_button_pressed() -> void:
+		$MenuSFX.play()
 		Global.MP+=50;
 		queue_free();

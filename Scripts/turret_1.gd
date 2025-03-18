@@ -12,14 +12,14 @@ var tab;
 var placeable = false;
 var upgrades = [
 	[
-		{"price":10,"desc":"Range 1","state":0,"new":80},
-		{"price":20,"desc":"Range 2", "state":0, "new": 90},
-		{"price":50,"desc":"Ability to see air enemies."}
+		{"price":20,"desc":"Range 1","state":0,"new":70},
+		{"price":30,"desc":"Range 2", "state":0, "new": 80},
+		{"price":60,"desc":"Ability to see air enemies."}
 	],
 	[
-		{"price":10, "desc":"Damage 1","new":2},
-		{"price":20, "desc": "Damage 2","new":3},
-		{"price":50, "desc": "Piercing damage."}
+		{"price":20, "desc":"Damage 1","new":1.5},
+		{"price":30, "desc": "Damage 2","new":2},
+		{"price":60, "desc": "Piercing damage."}
 	]
 ]
 func _ready() -> void:
@@ -68,10 +68,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		dropped=true
 		Global.MP=Global.MP-50;
 		Global.cancel=false;
+		$MenuSFX.play()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
 		$Control.visible=!$Control.visible
+		$MenuSFX.play()
 
 func _draw() -> void:
 	if(dropped==false or $Control.visible):
@@ -108,17 +110,20 @@ func buy_upgrade(lvl):
 func _on_lvl_1_pressed(path) -> void:
 	var bought = buy_upgrade(0)
 	if(bought==true):
+		$MenuSFX.play()
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL1").disabled=true;
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=false;
 	
 func _on_lvl_2_pressed(path) -> void:
 	var bought = buy_upgrade(1)
 	if(bought==true):
+		$MenuSFX.play()
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=true;
 		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=false;
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"]):
+		$MenuSFX.play()
 		match tab:
 			0: airvis=1;
 			1: pierce=true;
@@ -145,5 +150,6 @@ func placement_check():
 
 
 func _on_sell_button_pressed() -> void:
+	$MenuSFX.play()
 	Global.MP+=50;
 	queue_free();

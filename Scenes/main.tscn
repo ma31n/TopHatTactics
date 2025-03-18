@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://ddu7c5a5f717a"]
+[gd_scene load_steps=16 format=4 uid="uid://ddu7c5a5f717a"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jmla6"]
 [ext_resource type="PackedScene" uid="uid://cukihyasod6he" path="res://Scenes/objective.tscn" id="1_lk6rx"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c1m4a1xnnypsv" path="res://Top Hat Tactics Gameplay.ogg" id="9_b0tp6"]
 [ext_resource type="PackedScene" uid="uid://cw6a5haal0yq8" path="res://Scenes/cancel.tscn" id="10_ilidf"]
 [ext_resource type="Script" path="res://Scripts/cancel.gd" id="11_03wmw"]
+[ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="12_ciqs5"]
 
 [sub_resource type="Curve2D" id="Curve2D_xw07t"]
 _data = {
@@ -66,35 +67,44 @@ offset_top = 4.0
 offset_right = 130.0
 offset_bottom = 27.0
 
-[node name="turret_1" parent="." instance=ExtResource("5_x22he")]
-offset_left = 542.0
-offset_top = 278.0
-offset_right = 574.0
-offset_bottom = 310.0
+[node name="ICONS" type="ColorRect" parent="."]
+offset_left = 476.0
+offset_top = 224.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 0.658824)
+
+[node name="turret_1" parent="ICONS" instance=ExtResource("5_x22he")]
+offset_left = 65.0
+offset_top = 48.0
+offset_right = 97.0
+offset_bottom = 80.0
+
+[node name="turret_2" parent="ICONS" instance=ExtResource("5_8rme8")]
+offset_left = 5.0
+offset_top = 48.0
+offset_right = 37.0
+offset_bottom = 80.0
+
+[node name="turret_3" parent="ICONS" instance=ExtResource("6_xpkag")]
+offset_left = 60.0
+offset_right = 100.0
+
+[node name="turret_4" parent="ICONS" instance=ExtResource("8_i1fdj")]
+offset_right = 48.0
+
+[node name="Label2" type="Label" parent="ICONS"]
+offset_left = 18.0
+offset_top = 78.0
+offset_right = 83.0
+offset_bottom = 101.0
+text = "50 EACH"
 
 [node name="Currency" type="Label" parent="."]
 offset_left = 516.0
 offset_top = 11.0
 offset_right = 556.0
 offset_bottom = 34.0
-
-[node name="turret_2" parent="." instance=ExtResource("5_8rme8")]
-offset_left = 480.0
-offset_top = 280.0
-offset_right = 512.0
-offset_bottom = 312.0
-
-[node name="turret_3" parent="." instance=ExtResource("6_xpkag")]
-offset_left = 532.0
-offset_top = 227.0
-offset_right = 572.0
-offset_bottom = 267.0
-
-[node name="turret_4" parent="." instance=ExtResource("8_i1fdj")]
-offset_left = 480.0
-offset_top = 229.0
-offset_right = 528.0
-offset_bottom = 269.0
 
 [node name="Finish" type="Area2D" parent="."]
 
@@ -151,13 +161,6 @@ tile_set = ExtResource("8_7wlo4")
 stream = ExtResource("9_b0tp6")
 autoplay = true
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 492.0
-offset_top = 206.0
-offset_right = 557.0
-offset_bottom = 229.0
-text = "50 EACH"
-
 [node name="Unplaceable" type="Area2D" parent="."]
 
 [node name="Unplaceable" type="CollisionPolygon2D" parent="Unplaceable"]
@@ -165,6 +168,10 @@ polygon = PackedVector2Array(-59, 279, -48, 280, 137, 280, 137, 184, 263, 184, 2
 
 [node name="Cancel" parent="." instance=ExtResource("10_ilidf")]
 script = ExtResource("11_03wmw")
+
+[node name="MenuSFX" type="AudioStreamPlayer2D" parent="." groups=["SFX"]]
+stream = ExtResource("12_ciqs5")
+max_polyphony = 10000
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
