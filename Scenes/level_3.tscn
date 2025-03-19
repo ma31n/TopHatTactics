@@ -149,23 +149,28 @@ offset_bottom = 324.0
 color = Color(0, 0, 0, 0.658824)
 
 [node name="turret_1" parent="ICONS" instance=ExtResource("5_vhi34")]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 48.0
 offset_right = 98.0
 offset_bottom = 82.0
 
 [node name="turret_2" parent="ICONS" instance=ExtResource("6_sn57l")]
+layout_mode = 0
 offset_top = 48.0
 offset_bottom = 88.0
 
 [node name="turret_3" parent="ICONS" instance=ExtResource("7_ec41b")]
+layout_mode = 0
 offset_left = 60.0
 offset_right = 100.0
 
 [node name="turret_4" parent="ICONS" instance=ExtResource("8_mjijq")]
+layout_mode = 0
 offset_right = 48.0
 
 [node name="Label2" type="Label" parent="ICONS"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 78.0
 offset_right = 83.0

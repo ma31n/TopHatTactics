@@ -53,6 +53,7 @@ func _physics_process(delta: float) -> void:
 				projectile.position = self.position
 				projectile.damage = damage;
 				$AudioStreamPlayer2D.stream=load("res://SFX/WizardHatShoot.ogg")
+				$AudioStreamPlayer2D.pitch_scale=randf_range(0.8, 1.2);
 				$AudioStreamPlayer2D.play()
 				get_parent().add_child(projectile)
 				rdy=false
