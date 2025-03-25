@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c33vn08tp8xcj"]
+[gd_scene load_steps=21 format=4 uid="uid://c33vn08tp8xcj"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_3m100"]
 [ext_resource type="Texture2D" uid="uid://bdmpp7s2pvh4i" path="res://Sprites/TIleset-export.png" id="1_nlsnc"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c8ep200c7jr1g" path="res://Scenes/Turrets/turret_3.tscn" id="5_2nmox"]
 [ext_resource type="PackedScene" uid="uid://7n7r0qabl4kf" path="res://Scenes/Turrets/turret_4.tscn" id="6_6wv7i"]
 [ext_resource type="AudioStream" uid="uid://f5ksfarkylhf" path="res://Top Hat Tactics Menu.ogg" id="7_nfvdv"]
+[ext_resource type="FontFile" uid="uid://do6b3byejuwq" path="res://Fonts/Rammetto_One/RammettoOne-Regular.ttf" id="7_vwtcq"]
+[ext_resource type="Theme" uid="uid://cuhq77taj6tm0" path="res://Scenes/main_menu_buttons.tres" id="8_6k6yp"]
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="8_ma8lq"]
 
 [sub_resource type="Curve2D" id="Curve2D_wb1y1"]
@@ -274,6 +276,7 @@ offset_bottom = 325.0
 layout_mode = 0
 offset_right = 576.0
 offset_bottom = 74.0
+theme_override_fonts/normal_font = ExtResource("7_vwtcq")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]TOP HAT TACTICS[center]"
@@ -281,22 +284,25 @@ fit_content = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 255.0
+offset_left = 190.0
 offset_top = 105.0
-offset_right = 322.0
-offset_bottom = 216.0
+offset_right = 390.0
+offset_bottom = 206.0
 
 [node name="Level1" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("8_6k6yp")
 text = "LEVEL1"
 
 [node name="Level2" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("8_6k6yp")
 disabled = true
 text = "LEVEL 2"
 
 [node name="Level3" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("8_6k6yp")
 disabled = true
 text = "LEVEL 3"
 
