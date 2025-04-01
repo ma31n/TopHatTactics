@@ -11,3 +11,4 @@ func _on_pressed() -> void:
 		turret.position=get_global_mouse_position()
 		Global.cancel=true;
 		$"../../".add_child(turret)
+		

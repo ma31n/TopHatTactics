@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/turret_3.gd" id="1_mbd7r"]
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="4_oah6n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2vlhy"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttawq"]
 radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vad2n"]
@@ -139,7 +139,7 @@ script = ExtResource("1_mbd7r")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_2vlhy")
+shape = SubResource("CircleShape2D_ttawq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vad2n")
@@ -184,69 +184,59 @@ offset_bottom = 22.0
 scale = Vector2(0.8, 0.8)
 current_tab = 0
 
-[node name="PATH1" type="TabBar" parent="Control/TabContainer"]
+[node name="PATH1" type="VBoxContainer" parent="Control/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/PATH1"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 104.0
-
-[node name="Buttons" type="HBoxContainer" parent="Control/TabContainer/PATH1/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="Control/TabContainer/PATH1"]
 layout_mode = 2
 alignment = 1
 
-[node name="LVL1" type="Button" parent="Control/TabContainer/PATH1/VBoxContainer/Buttons"]
+[node name="LVL1" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
 layout_mode = 2
 text = "LVL1"
 
-[node name="LVL2" type="Button" parent="Control/TabContainer/PATH1/VBoxContainer/Buttons"]
+[node name="LVL2" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
 layout_mode = 2
 disabled = true
 text = "LVL2"
 
-[node name="LVL3" type="Button" parent="Control/TabContainer/PATH1/VBoxContainer/Buttons"]
+[node name="LVL3" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
 layout_mode = 2
 disabled = true
 text = "LVL3
 "
 
-[node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH1/VBoxContainer"]
+[node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH1"]
 layout_mode = 2
 text = "This is info about the upgrade.
 COST: 100MP"
 fit_content = true
 
-[node name="PATH2" type="TabBar" parent="Control/TabContainer"]
+[node name="PATH2" type="VBoxContainer" parent="Control/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/PATH2"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 104.0
-
-[node name="Buttons" type="HBoxContainer" parent="Control/TabContainer/PATH2/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="Control/TabContainer/PATH2"]
 layout_mode = 2
 alignment = 1
 
-[node name="LVL1" type="Button" parent="Control/TabContainer/PATH2/VBoxContainer/Buttons"]
+[node name="LVL1" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
 layout_mode = 2
 text = "LVL1"
 
-[node name="LVL2" type="Button" parent="Control/TabContainer/PATH2/VBoxContainer/Buttons"]
+[node name="LVL2" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
 layout_mode = 2
 disabled = true
 text = "LVL2"
 
-[node name="LVL3" type="Button" parent="Control/TabContainer/PATH2/VBoxContainer/Buttons"]
+[node name="LVL3" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
 layout_mode = 2
 disabled = true
 text = "LVL3"
 
-[node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH2/VBoxContainer"]
+[node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH2"]
 layout_mode = 2
 text = "This is info about the upgrade.
 COST: 100MP"
@@ -269,16 +259,16 @@ max_polyphony = 100000
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="mouse_entered" from="Control/TabContainer/PATH1/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
-[connection signal="pressed" from="Control/TabContainer/PATH1/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH1"]]
-[connection signal="mouse_entered" from="Control/TabContainer/PATH1/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
-[connection signal="pressed" from="Control/TabContainer/PATH1/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH1"]]
-[connection signal="mouse_entered" from="Control/TabContainer/PATH1/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
-[connection signal="pressed" from="Control/TabContainer/PATH1/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH1"]]
-[connection signal="mouse_entered" from="Control/TabContainer/PATH2/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
-[connection signal="pressed" from="Control/TabContainer/PATH2/VBoxContainer/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH2"]]
-[connection signal="mouse_entered" from="Control/TabContainer/PATH2/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
-[connection signal="pressed" from="Control/TabContainer/PATH2/VBoxContainer/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH2"]]
-[connection signal="mouse_entered" from="Control/TabContainer/PATH2/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
-[connection signal="pressed" from="Control/TabContainer/PATH2/VBoxContainer/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH2"]]
+[connection signal="mouse_entered" from="Control/TabContainer/PATH1/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
+[connection signal="pressed" from="Control/TabContainer/PATH1/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="Control/TabContainer/PATH1/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
+[connection signal="pressed" from="Control/TabContainer/PATH1/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="Control/TabContainer/PATH1/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
+[connection signal="pressed" from="Control/TabContainer/PATH1/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH1"]]
+[connection signal="mouse_entered" from="Control/TabContainer/PATH2/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
+[connection signal="pressed" from="Control/TabContainer/PATH2/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH2"]]
+[connection signal="mouse_entered" from="Control/TabContainer/PATH2/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]
+[connection signal="pressed" from="Control/TabContainer/PATH2/Buttons/LVL2" to="." method="_on_lvl_2_pressed" binds= ["PATH2"]]
+[connection signal="mouse_entered" from="Control/TabContainer/PATH2/Buttons/LVL3" to="." method="_on_lvl_3_mouse_entered"]
+[connection signal="pressed" from="Control/TabContainer/PATH2/Buttons/LVL3" to="." method="_on_lvl_3_pressed" binds= ["PATH2"]]
 [connection signal="pressed" from="Control/SellButton" to="." method="_on_sell_button_pressed"]

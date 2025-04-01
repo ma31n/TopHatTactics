@@ -6,7 +6,6 @@ var rdy = true;
 var turret_level = 0
 var damage = 4
 
-
 var projscale = 1
 var airvis = 1;
 var pierce = false;
@@ -27,6 +26,8 @@ var upgrades = [
 func _ready() -> void:
 	$AudioStreamPlayer2D.stream=load("res://SFX/baseball-cavalry-sting-short-sustain-80564.ogg")
 	$AudioStreamPlayer2D.play()
+	
+	$Area2D/CollisionShape2D.shape = $Area2D/CollisionShape2D.shape.duplicate()
 
 func _physics_process(delta: float) -> void:
 	tab = $Control/TabContainer.current_tab
@@ -103,7 +104,7 @@ func _on_lvl_3_mouse_entered() -> void:
 
 func showbuttons(lvl):
 	var tab = $Control/TabContainer.current_tab
-	get_node("Control/TabContainer/PATH"+str(tab+1)+"/VBoxContainer/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
 	
 func buy_upgrade(lvl):
 	var bought = false;
@@ -119,15 +120,15 @@ func _on_lvl_1_pressed(path) -> void:
 	var bought = buy_upgrade(0)
 	if(bought==true):
 		$MenuSFX.play()
-		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL1").disabled=true;
-		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=false;
+		get_node("Control/TabContainer/"+path+"/Buttons/LVL1").disabled=true;
+		get_node("Control/TabContainer/"+path+"/Buttons/LVL2").disabled=false;
 	
 func _on_lvl_2_pressed(path) -> void:
 	var bought = buy_upgrade(1)
 	if(bought==true):
 		$MenuSFX.play()
-		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL2").disabled=true;
-		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=false;
+		get_node("Control/TabContainer/"+path+"/Buttons/LVL2").disabled=true;
+		get_node("Control/TabContainer/"+path+"/Buttons/LVL3").disabled=false;
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"]):
@@ -135,7 +136,7 @@ func _on_lvl_3_pressed(path) -> void:
 		match tab:
 			0: projscale=1.5;
 			1: $Area2D/CollisionShape2D.shape.radius=1000;
-		get_node("Control/TabContainer/"+path+"/VBoxContainer/Buttons/LVL3").disabled=true;
+		get_node("Control/TabContainer/"+path+"/Buttons/LVL3").disabled=true;
 
 func stunning():
 	var areas = $Turret.get_overlapping_areas()
