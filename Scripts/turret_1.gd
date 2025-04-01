@@ -25,11 +25,13 @@ var upgrades = [
 func _ready() -> void:
 	$AudioStreamPlayer2D.stream=load("res://SFX/HatPlace.ogg")
 	$AudioStreamPlayer2D.play()
+	print(get_node("Control/TabContainer/PATH1/Buttons/LVL1").theme.get_theme_item_list(Theme.DATA_TYPE_STYLEBOX,"Button"))
 	
 	$Area2D/CollisionShape2D.shape = $Area2D/CollisionShape2D.shape.duplicate()
 
 func _physics_process(delta: float) -> void:
-	
+	var tema = Theme.new()
+	tema.get_theme_item(Theme.DATA_TYPE_STYLEBOX, "Button", "bought");
 	if(dropped==false):
 		placement_check();
 	
