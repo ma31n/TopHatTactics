@@ -12,26 +12,25 @@ var tab;
 var placeable = false;
 var upgrades = [
 	[
-		{"price":20,"desc":"Range 1","state":0,"new":70},
-		{"price":30,"desc":"Range 2", "state":0, "new": 80},
+		{"price":20,"desc":"Longer range 1","state":0,"new":70},
+		{"price":30,"desc":"Longer range 2", "state":0, "new": 80},
 		{"price":60,"desc":"Ability to see air enemies."}
 	],
 	[
-		{"price":20, "desc":"Damage 1","new":1.5},
-		{"price":30, "desc": "Damage 2","new":2},
+		{"price":20, "desc":"More damage 1","new":1.5},
+		{"price":30, "desc": "More damage 2","new":2},
 		{"price":60, "desc": "Piercing damage."}
 	]
 ]
 func _ready() -> void:
 	$AudioStreamPlayer2D.stream=load("res://SFX/HatPlace.ogg")
 	$AudioStreamPlayer2D.play()
-	print(get_node("Control/TabContainer/PATH1/Buttons/LVL1").theme.get_theme_item_list(Theme.DATA_TYPE_STYLEBOX,"Button"))
 	
 	$Area2D/CollisionShape2D.shape = $Area2D/CollisionShape2D.shape.duplicate()
+	
+	_on_tab_container_tab_changed(0);
 
 func _physics_process(delta: float) -> void:
-	var tema = Theme.new()
-	tema.get_theme_item(Theme.DATA_TYPE_STYLEBOX, "Button", "bought");
 	if(dropped==false):
 		placement_check();
 	
@@ -100,7 +99,7 @@ func _on_lvl_3_mouse_entered() -> void:
 
 func showbuttons(lvl):
 	var tab = $Control/TabContainer.current_tab
-	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][lvl]["price"])
 	
 func buy_upgrade(lvl):
 	var bought = false;
@@ -116,15 +115,26 @@ func _on_lvl_1_pressed(path) -> void:
 	var bought = buy_upgrade(0)
 	if(bought==true):
 		$MenuSFX.play()
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL1").disabled=true;
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL2").disabled=false;
+		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL1"); 
+		n.disabled=true;
+		n.text="✓";
+		n.self_modulate=Color.GREEN;
+		
+		var n2 = get_node("Control/TabContainer/"+path+"/Buttons/LVL2");
+		n2.disabled=false;
+		n2.text=n2.name;
 	
 func _on_lvl_2_pressed(path) -> void:
 	var bought = buy_upgrade(1)
 	if(bought==true):
 		$MenuSFX.play()
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL2").disabled=true;
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL3").disabled=false;
+		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL2"); 
+		n.disabled=true;
+		n.text="✓";
+		n.self_modulate=Color.GREEN;
+		var n2 = get_node("Control/TabContainer/"+path+"/Buttons/LVL3");
+		n2.disabled=false;
+		n2.text=n2.name;
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"]):
@@ -132,7 +142,10 @@ func _on_lvl_3_pressed(path) -> void:
 		match tab:
 			0: airvis=1;
 			1: pierce=true;
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL3").disabled=true;
+		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL3"); 
+		n.disabled=true;
+		n.text="✓";
+		n.self_modulate=Color.GREEN;
 
 func stunning():
 	var areas = $Turret.get_overlapping_areas()
@@ -158,3 +171,7 @@ func _on_sell_button_pressed() -> void:
 	$MenuSFX.play()
 	Global.MP+=50;
 	queue_free();
+
+
+func _on_tab_container_tab_changed(tab: int) -> void:
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][0]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])

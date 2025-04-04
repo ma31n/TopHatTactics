@@ -19,7 +19,6 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [resource]
-Button/styles/bought = null
 Button/styles/focus = SubResource("StyleBoxFlat_wwcg8")
 Button/styles/hover = SubResource("StyleBoxFlat_i4jdv")
 Button/styles/normal = SubResource("StyleBoxFlat_esron")

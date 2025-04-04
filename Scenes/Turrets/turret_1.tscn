@@ -1603,7 +1603,7 @@ cache/0/14/0/glyphs/58/size = Vector2(16, 12)
 cache/0/14/0/glyphs/58/uv_rect = Rect2(179, 42, 16, 12)
 cache/0/14/0/glyphs/58/texture_idx = 0
 
-[sub_resource type="Image" id="Image_vna08"]
+[sub_resource type="Image" id="Image_sctic"]
 data = {
 "data": PackedByteArray("////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////YP///2H///8A////AP///wD///8A////AP///wD///8A////AP///2D///9h////AP///wD///8A////YP///7////+/////Yf///wD///8A////AP///wD///8A////AP///2D///+/////v////2H///8A////AP///2H///+/////v////7////9h////AP///wD///8A////AP///2D///+/////v////7////9g////AP///wD///8A////Yf///7////+/////v////2H///8A////AP///2D///+/////v////7////9g////AP///wD///8A////AP///wD///9h////v////7////+/////Yf///2D///+/////v////7////9g////AP///wD///8A////AP///wD///8A////AP///2H///+/////v////7////+/////v////7////9g////AP///wD///8A////AP///wD///8A////AP///wD///8A////Yf///7////+/////v////7////9g////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///2D///+/////v////7////+/////Yf///wD///8A////AP///wD///8A////AP///wD///8A////AP///2D///+/////v////7////+/////v////7////9h////AP///wD///8A////AP///wD///8A////AP///2D///+/////v////7////9g////Yf///7////+/////v////2H///8A////AP///wD///8A////AP///2D///+/////v////7////9g////AP///wD///9h////v////7////+/////Yf///wD///8A////AP///2D///+/////v////7////9g////AP///wD///8A////AP///2H///+/////v////7////9h////AP///wD///9h////v////7////9g////AP///wD///8A////AP///wD///8A////Yf///7////+/////YP///wD///8A////AP///2H///9g////AP///wD///8A////AP///wD///8A////AP///wD///9h////YP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AA=="),
 "format": "RGBA8",
@@ -1613,9 +1613,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_0xpfg"]
-image = SubResource("Image_vna08")
+image = SubResource("Image_sctic")
 
-[sub_resource type="Image" id="Image_1a6y6"]
+[sub_resource type="Image" id="Image_st2ay"]
 data = {
 "data": PackedByteArray("////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////Av///07+//6I/v/+rf7//q3+//6H/P/8Tf///wL///8A////AP///wD///8A////AP///wD///8A////Ff///5D+//6//v/+v/7//r/+//6//v/+v/7//r/+//6P////FP///wD///8A////AP///wD///8A////Av///5D+//6//v/+v/7//r/u8O7Ce31734aGhtz+//6//v/+v/7//o////8C////AP///wD///8A////AP///07+//6//v/+v/7//r/u8O7CdHV04lxcXOl9fn3f/v/+v/7//r/+//6//P/8TP///wD///8A////AP///wD+//6I/v/+v/7//r/u8O7CdHV04lxcXOlzdHPi8PHwwv7//r/+//6//v/+v////4X///8A////AP///wD///8A/v/+rf7//r/+//6/e31731xcXOlpamnl8PHwwv7//r/+//6//v/+v/7//r/+//6t////AP///wD///8A////AP7//q3+//6//v/+v3t9e99cXFzpaWpp5e7w7sL+//6//v/+v/7//r/+//6//v/+rP///wD///8A////AP///wD+//6H/v/+v/7//r/u8O7Cc3Rz4lxcXOlzdHPi7vDuwv7//r/+//6//v/+v////4X///8A////AP///wD///8A/P/8Tf7//r/+//6//v/+v+7w7sJzdHPiXFxc6X1+fd/+//6//v/+v/7//r////9L////AP///wD///8A////AP///wL+//6P/v/+v/7//r/+//6/7vDuwn1+fd+FhYXc/v/+v/7//r/+//6O////Av///wD///8A////AP///wD///8A////FP7//o/+//6//v/+v/7//r/+//6//v/+v/7//r/+//6O////E////wD///8A////AP///wD///8A////AP///wD///8C/P/8TP///4X+//6t/v/+rP///4X///9L////Av///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AA=="),
 "format": "RGBA8",
@@ -1625,9 +1625,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_mckga"]
-image = SubResource("Image_1a6y6")
+image = SubResource("Image_st2ay")
 
-[sub_resource type="Image" id="Image_ned43"]
+[sub_resource type="Image" id="Image_r0ufm"]
 data = {
 "data": PackedByteArray("////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////Av///2j+//61/v/+5/7//uf+//60////Zv///wL///8A////AP///wD///8A////AP///wD///8A////G/7//sH+//7//v/+//7//v/+//7//v/+//7//v/+//6/////Gv///wD///8A////AP///wD///8A////Av7//sH+//7//v/+//7//v/s7ez/UFBQ/2BgYP/+//7//v/+//7//r////8C////AP///wD///8A////AP///2j+//7//v/+//7//v/s7ez/QkJC/xoaGv9RUVH//v/+//7//v/+//7/////Zf///wD///8A////AP///wD+//61/v/+//7//v/s7ez/QkJC/xoaGv9DQ0P/7e7t//7//v/+//7//v/+//7//rL///8A////AP///wD///8A/v/+5/7//v/+//7/UFBQ/xoaGv8wMDD/7e7t//7//v/+//7//v/+//7//v/+//7n////AP///wD///8A////AP7//uf+//7//v/+/1BQUP8aGhr/MDAw/+zt7P/+//7//v/+//7//v/+//7//v/+5v///wD///8A////AP///wD+//60/v/+//7//v/s7ez/Q0ND/xoaGv9DQ0P/7O3s//7//v/+//7//v/+//7//rL///8A////AP///wD///8A////Zv7//v/+//7//v/+/+zt7P9DQ0P/Ghoa/1FRUf/+//7//v/+//7//v////9k////AP///wD///8A////AP///wL+//6//v/+//7//v/+//7/7O3s/1FRUf9fX1///v/+//7//v/+//69////Av///wD///8A////AP///wD///8A////Gv7//r/+//7//v/+//7//v/+//7//v/+//7//v/+//69////Gf///wD///8A////AP///wD///8A////AP///wD///8C////Zf7//rL+//7n/v/+5v7//rL///9k////Av///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AA=="),
 "format": "RGBA8",
@@ -1637,9 +1637,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_lm5sa"]
-image = SubResource("Image_ned43")
+image = SubResource("Image_r0ufm")
 
-[sub_resource type="Image" id="Image_opsu6"]
+[sub_resource type="Image" id="Image_d4esj"]
 data = {
 "data": PackedByteArray("////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A09PT/9PT0//T09P/09PT/9PT0//T09P/////AP///wD///8A////AP///wD///8A////AP///wD///8A////ANPT0//T09P/09PT/9PT0//T09P/09PT/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wDT09P/09PT/9PT0//T09P/09PT/9PT0/////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wA="),
 "format": "RGBA8",
@@ -1649,9 +1649,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_t4th1"]
-image = SubResource("Image_opsu6")
+image = SubResource("Image_d4esj")
 
-[sub_resource type="Image" id="Image_3btbt"]
+[sub_resource type="Image" id="Image_ya3ow"]
 data = {
 "data": PackedByteArray("////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////Av///07+//6I/v/+rf7//q3+//6H/P/8Tf///wL///8A////AP///wD///8A////AP///wD///8A////Ff///5D+//6//v/+v/7//r/+//6//v/+v/7//r/+//6P////FP///wD///8A////AP///wD///8A////Av///5D+//6//v/+v4WFhdx7fXvf7vDuwv7//r/+//6//v/+v/7//o////8C////AP///wD///8A////AP///07+//6//v/+v/7//r97fXvfXFxc6XN0c+Lu8O7C/v/+v/7//r/+//6//P/8TP///wD///8A////AP///wD+//6I/v/+v/7//r/+//6/7vDuwnN0c+JcXFzpc3Rz4u7w7sL+//6//v/+v////4X///8A////AP///wD///8A/v/+rf7//r/+//6//v/+v/7//r/u8O7CaWlp5VxcXOl9fn3f/v/+v/7//r/+//6t////AP///wD///8A////AP7//q3+//6//v/+v/7//r/+//6/7vDuwmlpaeVcXFzpfX593/7//r/+//6//v/+rP///wD///8A////AP///wD+//6H/v/+v/7//r/+//6/7vDuwnR1dOJcXFzpc3Rz4vDx8ML+//6//v/+v////4X///8A////AP///wD///8A/P/8Tf7//r/+//6//v/+v3t9e99cXFzpc3Rz4vDx8ML+//6//v/+v/7//r////9L////AP///wD///8A////AP///wL+//6P/v/+v/7//r+GhobcfX593/Dx8ML+//6//v/+v/7//r/+//6O////Av///wD///8A////AP///wD///8A////FP7//o/+//6//v/+v/7//r/+//6//v/+v/7//r/+//6O////E////wD///8A////AP///wD///8A////AP///wD///8C/P/8TP///4X+//6t/v/+rP///4X///9L////Av///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AA=="),
 "format": "RGBA8",
@@ -1661,9 +1661,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_ni7iv"]
-image = SubResource("Image_3btbt")
+image = SubResource("Image_ya3ow")
 
-[sub_resource type="Image" id="Image_nfbn5"]
+[sub_resource type="Image" id="Image_vitmc"]
 data = {
 "data": PackedByteArray("////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////Av///2j+//61/v/+5/7//uf+//60////Zv///wL///8A////AP///wD///8A////AP///wD///8A////G/7//sH+//7//v/+//7//v/+//7//v/+//7//v/+//6/////Gv///wD///8A////AP///wD///8A////Av7//sH+//7//v/+/15eXv9QUFD/7O3s//7//v/+//7//v/+//7//r////8C////AP///wD///8A////AP///2j+//7//v/+//7//v9QUFD/Ghoa/0NDQ//s7ez//v/+//7//v/+//7/////Zf///wD///8A////AP///wD+//61/v/+//7//v/+//7/7O3s/0NDQ/8aGhr/Q0ND/+zt7P/+//7//v/+//7//rL///8A////AP///wD///8A/v/+5/7//v/+//7//v/+//7//v/s7ez/Ly8v/xoaGv9RUVH//v/+//7//v/+//7n////AP///wD///8A////AP7//uf+//7//v/+//7//v/+//7/7O3s/y8vL/8aGhr/UVFR//7//v/+//7//v/+5v///wD///8A////AP///wD+//60/v/+//7//v/+//7/7O3s/0JCQv8aGhr/Q0ND/+3u7f/+//7//v/+//7//rL///8A////AP///wD///8A////Zv7//v/+//7//v/+/1BQUP8aGhr/Q0ND/+3u7f/+//7//v/+//7//v////9k////AP///wD///8A////AP///wL+//6//v/+//7//v9gYGD/UVFR/+3u7f/+//7//v/+//7//v/+//69////Av///wD///8A////AP///wD///8A////Gv7//r/+//7//v/+//7//v/+//7//v/+//7//v/+//69////Gf///wD///8A////AP///wD///8A////AP///wD///8C////Zf7//rL+//7n/v/+5v7//rL///9k////Av///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AA=="),
 "format": "RGBA8",
@@ -1673,10 +1673,10 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_motmo"]
-image = SubResource("Image_nfbn5")
+image = SubResource("Image_vitmc")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjkok"]
-bg_color = Color(0, 0, 0, 0.529412)
+bg_color = Color(0, 0, 0, 0.717647)
 border_width_left = 1
 border_width_top = 1
 border_width_bottom = 1
@@ -1693,7 +1693,7 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n6aa"]
-bg_color = Color(0, 0, 0, 0.529412)
+bg_color = Color(0, 0, 0, 0.717647)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -1743,7 +1743,7 @@ RichTextLabel/styles/normal = SubResource("StyleBoxFlat_bjpvm")
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qum6"]
-bg_color = Color(0.823529, 0, 0, 0.705882)
+bg_color = Color(0.823529, 0, 0, 1)
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
@@ -1752,7 +1752,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmxsx"]
-bg_color = Color(1, 0, 0, 0.705882)
+bg_color = Color(1, 0, 0, 0.717647)
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
@@ -1804,9 +1804,9 @@ shape = SubResource("RectangleShape2D_fu8qj")
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_top = -10.0
+offset_top = -50.0
 offset_right = 40.0
-offset_bottom = 30.0
+offset_bottom = -10.0
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 0
@@ -1826,21 +1826,24 @@ layout_mode = 2
 alignment = 1
 
 [node name="LVL1" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 theme = ExtResource("4_x2jg4")
 text = "LVL1"
 
 [node name="LVL2" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 theme = ExtResource("4_x2jg4")
 disabled = true
-text = "LVL2"
+text = "🔒"
 
 [node name="LVL3" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 theme = ExtResource("4_x2jg4")
 disabled = true
-text = "LVL3"
+text = "🔒"
 
 [node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH1"]
 layout_mode = 2
@@ -1858,27 +1861,29 @@ layout_mode = 2
 alignment = 1
 
 [node name="LVL1" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 theme = ExtResource("4_x2jg4")
 text = "LVL1"
 
 [node name="LVL2" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 theme = ExtResource("4_x2jg4")
 disabled = true
-text = "LVL2"
+text = "🔒"
 
 [node name="LVL3" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 theme = ExtResource("4_x2jg4")
 disabled = true
-text = "LVL3"
+text = "🔒"
 
 [node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH2"]
 layout_mode = 2
+theme = SubResource("Theme_n33kb")
 bbcode_enabled = true
-text = "This is info about the upgrade.
-COST: 10MP"
 fit_content = true
 
 [node name="SellButton" type="Button" parent="Control"]
@@ -1896,6 +1901,7 @@ max_polyphony = 100000
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="tab_changed" from="Control/TabContainer" to="." method="_on_tab_container_tab_changed"]
 [connection signal="mouse_entered" from="Control/TabContainer/PATH1/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
 [connection signal="pressed" from="Control/TabContainer/PATH1/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH1"]]
 [connection signal="mouse_entered" from="Control/TabContainer/PATH1/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]

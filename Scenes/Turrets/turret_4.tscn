@@ -279,18 +279,21 @@ metadata/_tab_index = 0
 layout_mode = 2
 
 [node name="LVL1" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 text = "LVL1"
 
 [node name="LVL2" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 disabled = true
-text = "LVL2"
+text = "🔒"
 
 [node name="LVL3" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 disabled = true
-text = "LVL3"
+text = "🔒"
 
 [node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH1"]
 layout_mode = 2
@@ -307,18 +310,21 @@ metadata/_tab_index = 1
 layout_mode = 2
 
 [node name="LVL1" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 text = "LVL1"
 
 [node name="LVL2" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 disabled = true
-text = "LVL2"
+text = "🔒"
 
 [node name="LVL3" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
+custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
 disabled = true
-text = "LVL3"
+text = "🔒"
 
 [node name="INFO" type="RichTextLabel" parent="Control/TabContainer/PATH2"]
 layout_mode = 2

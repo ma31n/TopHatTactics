@@ -120,15 +120,27 @@ func _on_lvl_1_pressed(path) -> void:
 	var bought = buy_upgrade(0)
 	if(bought==true):
 		$MenuSFX.play()
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL1").disabled=true;
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL2").disabled=false;
+		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL1"); 
+		n.disabled=true;
+		n.text="✓";
+		n.self_modulate=Color.GREEN;
+		
+		var n2 = get_node("Control/TabContainer/"+path+"/Buttons/LVL2");
+		n2.disabled=false;
+		n2.text=n2.name;
 	
 func _on_lvl_2_pressed(path) -> void:
 	var bought = buy_upgrade(1)
 	if(bought==true):
 		$MenuSFX.play()
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL2").disabled=true;
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL3").disabled=false;
+		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL2"); 
+		n.disabled=true;
+		n.text="✓";
+		n.self_modulate=Color.GREEN;
+		
+		var n2 = get_node("Control/TabContainer/"+path+"/Buttons/LVL3");
+		n2.disabled=false;
+		n2.text=n2.name;
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"]):
@@ -136,7 +148,10 @@ func _on_lvl_3_pressed(path) -> void:
 		match tab:
 			0: projscale=1.5;
 			1: $Area2D/CollisionShape2D.shape.radius=1000;
-		get_node("Control/TabContainer/"+path+"/Buttons/LVL3").disabled=true;
+		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL3"); 
+		n.disabled=true;
+		n.text="✓";
+		n.self_modulate=Color.GREEN;
 
 func stunning():
 	var areas = $Turret.get_overlapping_areas()
