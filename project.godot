@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 Music=""
 SFX=""
 
+[gui]
+
+theme/custom_font="res://Fonts/Chewy/Chewy-Regular.ttf"
+
 [input]
 
 ui_accept={

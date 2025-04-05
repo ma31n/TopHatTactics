@@ -4,9 +4,10 @@ var enemies = ["EnemyTopHat","EnemyHardHat","EnemyPropellerHat","EnemyFootballHa
 func _ready() -> void:
 	$AudioStreamPlayer2D.stream=load("res://Top Hat Tactics Menu.ogg");
 	$AudioStreamPlayer2D.play(Global.musictime)
+	title()
 
 func _physics_process(delta: float) -> void:
-	
+
 	if($Control/MusicVol.value>=$Control/MusicVol.step):
 		Global.musiclevel = -$Control/MusicVol.max_value+$Control/MusicVol.value;
 	else:
@@ -55,3 +56,17 @@ func _on_level_2_pressed() -> void:
 func _on_level_3_pressed() -> void:
 	$MenuSFX.play()
 	get_tree().change_scene_to_file("res://Scenes/level_3.tscn");
+
+func title():
+	var tween = create_tween()
+	tween.set_loops()
+	tween.tween_property($Control/RichTextLabel, "rotation", deg_to_rad(3),0.8).set_ease(Tween.EASE_IN_OUT);
+	tween.tween_property($Control/RichTextLabel, "rotation", deg_to_rad(-3),0.8).set_ease(Tween.EASE_IN_OUT);
+	
+	var tween2 = create_tween()
+	tween2.set_loops()
+
+	tween2.tween_property($Control/RichTextLabel, "scale", Vector2(0.9,0.9),1.5).set_ease(Tween.EASE_IN_OUT);
+	tween2.chain().tween_property($Control/RichTextLabel, "scale", Vector2(1.1,1.1),1.5).set_ease(Tween.EASE_IN_OUT);
+	
+	

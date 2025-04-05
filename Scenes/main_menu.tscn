@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://lsn6qrjnqq6k" path="res://Scenes/Turrets/turret_2.tscn" id="4_ijbhd"]
 [ext_resource type="PackedScene" uid="uid://c8ep200c7jr1g" path="res://Scenes/Turrets/turret_3.tscn" id="5_2nmox"]
 [ext_resource type="PackedScene" uid="uid://7n7r0qabl4kf" path="res://Scenes/Turrets/turret_4.tscn" id="6_6wv7i"]
+[ext_resource type="FontFile" uid="uid://o14u06tgh6h8" path="res://Fonts/Rampart_One/RampartOne-Regular.ttf" id="7_fts5o"]
 [ext_resource type="AudioStream" uid="uid://f5ksfarkylhf" path="res://Top Hat Tactics Menu.ogg" id="7_nfvdv"]
-[ext_resource type="FontFile" uid="uid://do6b3byejuwq" path="res://Fonts/Rammetto_One/RammettoOne-Regular.ttf" id="7_vwtcq"]
 [ext_resource type="Theme" uid="uid://cuhq77taj6tm0" path="res://Scenes/main_menu_buttons.tres" id="8_6k6yp"]
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="8_ma8lq"]
 
@@ -274,10 +274,12 @@ offset_bottom = 325.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
-offset_right = 576.0
-offset_bottom = 74.0
-theme_override_fonts/normal_font = ExtResource("7_vwtcq")
-theme_override_font_sizes/normal_font_size = 32
+offset_right = 580.0
+offset_bottom = 80.0
+rotation = -0.0523599
+pivot_offset = Vector2(290, 40)
+theme_override_fonts/normal_font = ExtResource("7_fts5o")
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
 text = "[center]TOP HAT TACTICS[center]"
 fit_content = true
@@ -292,13 +294,21 @@ offset_bottom = 206.0
 [node name="Level1" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_6k6yp")
-text = "LEVEL1"
+text = "LEVEL 1"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
 
 [node name="Level2" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_6k6yp")
 disabled = true
 text = "LEVEL 2"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
 
 [node name="Level3" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -308,10 +318,10 @@ text = "LEVEL 3"
 
 [node name="MusicVol" type="HSlider" parent="Control"]
 layout_mode = 0
-offset_left = 544.0
-offset_top = 316.0
-offset_right = 624.0
-offset_bottom = 332.0
+offset_left = 540.0
+offset_top = 290.0
+offset_right = 620.0
+offset_bottom = 306.0
 rotation = 4.71239
 theme = SubResource("Theme_c4421")
 max_value = 50.0
@@ -320,15 +330,33 @@ value = 50.0
 
 [node name="SFXVol" type="HSlider" parent="Control"]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 316.0
-offset_right = 580.0
-offset_bottom = 332.0
+offset_left = 465.0
+offset_top = 290.0
+offset_right = 545.0
+offset_bottom = 306.0
 rotation = 4.71239
 theme = SubResource("Theme_i25wo")
 max_value = 50.0
 step = 5.0
 value = 50.0
+
+[node name="MusicLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 296.0
+offset_right = 608.0
+offset_bottom = 336.0
+text = "Music"
+fit_content = true
+
+[node name="SFXLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 296.0
+offset_right = 542.0
+offset_bottom = 336.0
+text = "SFX"
+fit_content = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["Music"]]
 stream = ExtResource("7_nfvdv")

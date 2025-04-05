@@ -23,13 +23,13 @@
 -upgrade se primjeni na svaki instance enemyja+
 -upgrade window se mora prilagodit da ne bude offscreen+
 -zatvori upgrade window ako otvaras novi+
+-poboljšat UI da nije toliko confusing I messy+
 
 -font i ui je poopoo
 -mozda ukrasit malo levele da nisu barebones toliko
--poboljšat UI da nije toliko confusing I messy
-
-
-
+-lockanje zadnjeg upgrade-a na pathu
+-negdi je ubrzanje timera netocno
+-popravit double pathove
 
 -podesit cijene za upgrades
 -redesign upgradeove za mobitel, dva botuna
