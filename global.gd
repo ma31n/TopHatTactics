@@ -16,6 +16,8 @@ var musiclevel=0;
 
 var sfxlevel=0;
 
+var openedUpgrade: Control;
+
 func _physics_process(delta: float) -> void:
 	var songs = get_tree().get_nodes_in_group("Music");
 	for song in songs:

@@ -21,13 +21,13 @@
 -podesit sound effects, neki su preglasni (Cough cough baseball)+ 
 -sound fatigue (bilo bi dobro da npr kad wizard hat puca da se malo randomizira pitch svaki put i slično)+
 -upgrade se primjeni na svaki instance enemyja+
-
+-upgrade window se mora prilagodit da ne bude offscreen+
+-zatvori upgrade window ako otvaras novi+
 
 -font i ui je poopoo
 -mozda ukrasit malo levele da nisu barebones toliko
 -poboljšat UI da nije toliko confusing I messy
--upgrade window se mora prilagodit da ne bude offscreen
--zatvori upgrade window ako otvaras novi
+
 
 
 

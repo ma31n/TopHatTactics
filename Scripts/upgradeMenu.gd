@@ -11,7 +11,8 @@ func _ready() -> void:
 	self.connect("visibility_changed",calcPos)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if(Global.openedUpgrade!=self):
+		self.visible=false;
 	
 func calcPos():
 	var pos = self.global_position;
