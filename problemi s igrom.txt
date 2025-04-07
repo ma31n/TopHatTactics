@@ -25,6 +25,8 @@
 -zatvori upgrade window ako otvaras novi+
 -poboljšat UI da nije toliko confusing I messy+
 
+
+
 -font i ui je poopoo
 -mozda ukrasit malo levele da nisu barebones toliko
 -lockanje zadnjeg upgrade-a na pathu
