@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dwfw6lvnci6yw"]
+[gd_scene load_steps=14 format=4 uid="uid://dwfw6lvnci6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_4r282"]
 [ext_resource type="TileSet" uid="uid://d3j3tms7v4la8" path="res://Scenes/tilemap.tres" id="2_l7xvb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bn7p3yhyow71w" path="res://Scenes/Dragables/dragable_button2.tscn" id="6_00grs"]
 [ext_resource type="PackedScene" uid="uid://co4bvk4ycpqdn" path="res://Scenes/Dragables/dragable_button3.tscn" id="7_cmody"]
 [ext_resource type="PackedScene" uid="uid://rjuyenln75vs" path="res://Scenes/Dragables/dragable_button4.tscn" id="8_ntb3v"]
+[ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="9_knipw"]
 
 [sub_resource type="Environment" id="Environment_81cy2"]
 background_mode = 3
@@ -175,6 +176,10 @@ offset_top = 78.0
 offset_right = 83.0
 offset_bottom = 101.0
 text = "50 EACH"
+
+[node name="MenuSFX" type="AudioStreamPlayer2D" parent="." groups=["SFX"]]
+stream = ExtResource("9_knipw")
+max_polyphony = 10000000
 
 [connection signal="pressed" from="ColorRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="ColorRect/win" to="." method="_on_win_pressed"]

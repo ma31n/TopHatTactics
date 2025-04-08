@@ -17,6 +17,7 @@ var stun_length;
 var slowdown = false;
 var slow_length=0.8;
 
+
 func _ready() -> void:
 	$AnimatedSprite2D.play("default")
 	for name in enemies.keys():
@@ -46,7 +47,13 @@ func _physics_process(delta: float) -> void:
 
 		
 		if area.name == "Objective":
-			area.get_parent().position = global_position
+			if(area.get_parent().carrying==null or area.get_parent().carrying==self):
+				area.get_parent().position = global_position
+				
+				var path: PathFollow2D = self.get_parent()
+				if(path.progress_ratio<0.5):
+					path.direction(-1)
+				
 
 
 func _on_stun_timeout() -> void:

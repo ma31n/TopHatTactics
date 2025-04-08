@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cukihyasod6he"]
+[gd_scene load_steps=13 format=3 uid="uid://cukihyasod6he"]
 
+[ext_resource type="Script" path="res://Scripts/objective.gd" id="1_7gfqr"]
 [ext_resource type="Texture2D" uid="uid://d4nnd6m7i38eq" path="res://Sprites/MagicHatt.png" id="1_mr277"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvolu"]
@@ -69,6 +70,7 @@ animations = [{
 }]
 
 [node name="Objective" type="CharacterBody2D"]
+script = ExtResource("1_7gfqr")
 
 [node name="Objective" type="Area2D" parent="."]
 
