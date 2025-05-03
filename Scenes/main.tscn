@@ -61,7 +61,7 @@ script = ExtResource("1_jmla6")
 level = 1
 
 [node name="Objective" parent="." instance=ExtResource("1_lk6rx")]
-position = Vector2(427, 176)
+position = Vector2(425, 170)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-10.0622, -97.5392)
@@ -69,7 +69,7 @@ scale = Vector2(0.997854, 0.979058)
 curve = SubResource("Curve2D_xw07t")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-24.9914, 400.936)
+position = Vector2(-25.9935, 400.936)
 rotates = false
 loop = false
 script = ExtResource("2_nnl06")
