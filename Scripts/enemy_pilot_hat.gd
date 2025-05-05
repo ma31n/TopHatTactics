@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("walking")
 		
 	if stun==true and $Stun.is_stopped():
-		$Stun.start(stun_length)
+		$Stun.start(stun_length/Global.gamestate);
 		get_parent().stun=0
 
 	var areas = $Area2D.get_overlapping_areas()
@@ -70,7 +70,7 @@ func falling():
 func _on_stun_timeout() -> void:
 	stun=false;
 	if slowdown==true:
-		$Slow.start()
+		$Slow.start(slow_length/Global.gamestate)
 		get_parent().slow=0.5
 	get_parent().stun=1;
 
