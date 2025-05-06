@@ -1,9 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://7n7r0qabl4kf"]
+[gd_scene load_steps=39 format=3 uid="uid://7n7r0qabl4kf"]
 
 [ext_resource type="Script" path="res://Scripts/turret_4.gd" id="1_2lj55"]
 [ext_resource type="Texture2D" uid="uid://dwme4pkeepye3" path="res://Sprites/Tower_Samurai_Idle-Sheet.png" id="1_fpx28"]
 [ext_resource type="Texture2D" uid="uid://bicp2lf8gqeay" path="res://Sprites/Tower_Samurai_Attack-Sheet.png" id="2_3mabk"]
+[ext_resource type="Theme" uid="uid://bgwe8p2ywbw8c" path="res://Scenes/tabcontainer.tres" id="4_f2vra"]
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="4_ghd6v"]
+[ext_resource type="Theme" uid="uid://c0nhulr6kv22l" path="res://Scenes/tab_buttons.tres" id="5_n4g6r"]
+[ext_resource type="Theme" uid="uid://be6xefjemk1at" path="res://Scenes/sell_button.tres" id="5_xgoao"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h03rb"]
 radius = 55.0
@@ -255,20 +258,16 @@ wait_time = 10.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["SFX"]]
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_top = -10.0
-offset_right = 40.0
-offset_bottom = 30.0
+offset_right = 244.0
+offset_bottom = 150.0
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 0
-offset_left = -77.0
-offset_top = -128.0
-offset_right = 123.0
-offset_bottom = 22.0
-scale = Vector2(0.8, 0.8)
+offset_right = 200.0
+offset_bottom = 150.0
+theme = ExtResource("4_f2vra")
 current_tab = 0
 
 [node name="PATH1" type="VBoxContainer" parent="Control/TabContainer"]
@@ -277,21 +276,25 @@ metadata/_tab_index = 0
 
 [node name="Buttons" type="HBoxContainer" parent="Control/TabContainer/PATH1"]
 layout_mode = 2
+alignment = 1
 
 [node name="LVL1" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
 custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
+theme = ExtResource("5_n4g6r")
 text = "LVL1"
 
 [node name="LVL2" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
 custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
+theme = ExtResource("5_n4g6r")
 disabled = true
 text = "🔒"
 
 [node name="LVL3" type="Button" parent="Control/TabContainer/PATH1/Buttons"]
 custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
+theme = ExtResource("5_n4g6r")
 disabled = true
 text = "🔒"
 
@@ -312,17 +315,20 @@ layout_mode = 2
 [node name="LVL1" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
 custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
+theme = ExtResource("5_n4g6r")
 text = "LVL1"
 
 [node name="LVL2" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
 custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
+theme = ExtResource("5_n4g6r")
 disabled = true
 text = "🔒"
 
 [node name="LVL3" type="Button" parent="Control/TabContainer/PATH2/Buttons"]
 custom_minimum_size = Vector2(44, 25)
 layout_mode = 2
+theme = ExtResource("5_n4g6r")
 disabled = true
 text = "🔒"
 
@@ -333,13 +339,12 @@ COST: 100MP"
 fit_content = true
 
 [node name="SellButton" type="Button" parent="Control"]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 83.0
-offset_top = -103.0
-offset_right = 127.0
-offset_bottom = 16.0
-scale = Vector2(0.8, 0.8)
+offset_left = 200.0
+offset_top = 29.0
+offset_right = 245.0
+offset_bottom = 150.0
+theme = ExtResource("5_xgoao")
 text = "SELL"
 
 [node name="MenuSFX" type="AudioStreamPlayer2D" parent="."]
