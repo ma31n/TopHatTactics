@@ -27,10 +27,8 @@
 -popravit double pathove+
 -mozda ukrasit malo levele da nisu barebones toliko+
 -negdi je ubrzanje timera netocno+
-
-
--font i ui je poopoo
--lockanje zadnjeg upgrade-a na pathu
+-font i ui je poopoo+
+-lockanje zadnjeg upgrade-a na pathu+
 
 -podesit cijene za upgrades
 -redesign upgradeove za mobitel, dva botuna

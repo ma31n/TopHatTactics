@@ -11,6 +11,7 @@ var airvis = 1;
 var pierce = false;
 var tab;
 var placeable = false;
+var upgrade3 = false;
 var upgrades = [
 	[
 		{"price":20,"desc":"Speed 1","state":0,"new":1.5},
@@ -28,6 +29,8 @@ func _ready() -> void:
 	$AudioStreamPlayer2D.play()
 	
 	$Area2D/CollisionShape2D.shape = $Area2D/CollisionShape2D.shape.duplicate()
+	
+	_on_tab_container_tab_changed(0);
 
 func _physics_process(delta: float) -> void:
 	tab = $Control/TabContainer.current_tab
@@ -82,6 +85,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
 		$Control.visible=!$Control.visible
+		Global.openedUpgrade=$Control;
 		$MenuSFX.play()
 
 func _draw() -> void:
@@ -139,11 +143,14 @@ func _on_lvl_2_pressed(path) -> void:
 		n.self_modulate=Color.GREEN;
 		
 		var n2 = get_node("Control/TabContainer/"+path+"/Buttons/LVL3");
-		n2.disabled=false;
-		n2.text=n2.name;
+		if(upgrade3==false):
+			n2.disabled=false;
+			n2.text=n2.name;
+		else:
+			n2.text="❌";
 
 func _on_lvl_3_pressed(path) -> void:
-	if(Global.MP>=upgrades[tab][2]["price"]):
+	if(Global.MP>=upgrades[tab][2]["price"] and upgrade3!=true):
 		$MenuSFX.play()
 		match tab:
 			0: projscale=1.5;
@@ -152,6 +159,7 @@ func _on_lvl_3_pressed(path) -> void:
 		n.disabled=true;
 		n.text="✓";
 		n.self_modulate=Color.GREEN;
+		upgrade3=true;
 
 func stunning():
 	var areas = $Turret.get_overlapping_areas()
@@ -178,3 +186,7 @@ func _on_sell_button_pressed() -> void:
 		$MenuSFX.play()
 		Global.MP+=50;
 		queue_free();
+
+
+func _on_tab_container_tab_changed(tab: int) -> void:
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][0]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])

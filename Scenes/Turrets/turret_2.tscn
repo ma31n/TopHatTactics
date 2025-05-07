@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://lsn6qrjnqq6k"]
+[gd_scene load_steps=24 format=3 uid="uid://lsn6qrjnqq6k"]
 
 [ext_resource type="Script" path="res://Scripts/turret_2.gd" id="1_m12lv"]
 [ext_resource type="Texture2D" uid="uid://d031swqxd4krq" path="res://Sprites/Tower_Fedora_idle-Sheet.png" id="1_w2hja"]
 [ext_resource type="Texture2D" uid="uid://c8k8euqo2jqrs" path="res://Sprites/Tower_Fedora_Attack.png" id="2_ig8v8"]
+[ext_resource type="Script" path="res://Scripts/upgradeMenu.gd" id="4_6q5pt"]
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="4_hldvi"]
 [ext_resource type="Theme" uid="uid://bgwe8p2ywbw8c" path="res://Scenes/tabcontainer.tres" id="4_j16co"]
 [ext_resource type="Theme" uid="uid://c0nhulr6kv22l" path="res://Scenes/tab_buttons.tres" id="5_c1o5e"]
@@ -143,10 +144,12 @@ shape = SubResource("RectangleShape2D_eypwa")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["SFX"]]
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 244.0
 offset_bottom = 150.0
+script = ExtResource("4_6q5pt")
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 0
@@ -240,6 +243,7 @@ max_polyphony = 10000
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="tab_changed" from="Control/TabContainer" to="." method="_on_tab_container_tab_changed"]
 [connection signal="mouse_entered" from="Control/TabContainer/PATH1/Buttons/LVL1" to="." method="_on_lvl_1_mouse_entered"]
 [connection signal="pressed" from="Control/TabContainer/PATH1/Buttons/LVL1" to="." method="_on_lvl_1_pressed" binds= ["PATH1"]]
 [connection signal="mouse_entered" from="Control/TabContainer/PATH1/Buttons/LVL2" to="." method="_on_lvl_2_mouse_entered"]

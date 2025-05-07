@@ -10,6 +10,8 @@ var airvis = 0;
 var pierce = false;
 var tab;
 var placeable = false;
+var upgrade3 = false;
+
 var upgrades = [
 	[
 		{"price":20,"desc":"Longer range 1","state":0,"new":70},
@@ -133,12 +135,16 @@ func _on_lvl_2_pressed(path) -> void:
 		n.disabled=true;
 		n.text="✓";
 		n.self_modulate=Color.GREEN;
+		
 		var n2 = get_node("Control/TabContainer/"+path+"/Buttons/LVL3");
-		n2.disabled=false;
-		n2.text=n2.name;
+		if(upgrade3==false):
+			n2.disabled=false;
+			n2.text=n2.name;
+		else:
+			n2.text="❌";
 
 func _on_lvl_3_pressed(path) -> void:
-	if(Global.MP>=upgrades[tab][2]["price"]):
+	if(Global.MP>=upgrades[tab][2]["price"] and upgrade3!=true):
 		$MenuSFX.play()
 		match tab:
 			0: airvis=1;
@@ -147,6 +153,7 @@ func _on_lvl_3_pressed(path) -> void:
 		n.disabled=true;
 		n.text="✓";
 		n.self_modulate=Color.GREEN;
+		upgrade3=true;
 
 func stunning():
 	var areas = $Turret.get_overlapping_areas()
