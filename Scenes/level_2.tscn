@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://dwfw6lvnci6yw"]
+[gd_scene load_steps=22 format=4 uid="uid://dwfw6lvnci6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_4r282"]
+[ext_resource type="Theme" uid="uid://bqkpjiev1o5at" path="res://Scenes/smalldetails.tres" id="2_6l13l"]
 [ext_resource type="TileSet" uid="uid://d3j3tms7v4la8" path="res://Scenes/tilemap.tres" id="2_l7xvb"]
 [ext_resource type="AudioStream" uid="uid://c1m4a1xnnypsv" path="res://Top Hat Tactics Gameplay.ogg" id="3_lx8xy"]
 [ext_resource type="TileSet" uid="uid://d03r6ioew7yhg" path="res://Scenes/TilesetBig.tres" id="3_qa4km"]
@@ -108,17 +109,21 @@ text = "CONTINUE"
 
 [node name="Label" type="Label" parent="."]
 z_index = 500
-offset_left = 90.0
-offset_top = 5.0
-offset_right = 130.0
-offset_bottom = 28.0
+offset_left = 68.0
+offset_top = 3.0
+offset_right = 98.0
+offset_bottom = 26.0
+theme = ExtResource("2_6l13l")
+horizontal_alignment = 1
 
 [node name="Currency" type="Label" parent="."]
 z_index = 500
 offset_left = 516.0
-offset_top = 11.0
-offset_right = 556.0
-offset_bottom = 34.0
+offset_top = 3.0
+offset_right = 566.0
+offset_bottom = 26.0
+theme = ExtResource("2_6l13l")
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 z_index = 500
