@@ -6,7 +6,7 @@ var oglevelscompleted = 0;
 
 var gamestate = -1;
 var MP = 200;
-var levelscompleted = 0;
+var levelscompleted = 2;
 
 var musictime=0;
 
@@ -17,6 +17,8 @@ var musiclevel=0;
 var sfxlevel=0;
 
 var openedUpgrade: Control;
+
+var global_selected = false;
 
 func _physics_process(delta: float) -> void:
 	var songs = get_tree().get_nodes_in_group("Music");

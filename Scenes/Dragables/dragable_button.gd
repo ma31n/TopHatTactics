@@ -5,7 +5,8 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	if(Global.MP>=50):
+	if(Global.MP>=50 and Global.global_selected==false):
+		Global.global_selected=true;
 		$MenuSFX.play()
 		var turret = ResourceLoader.load("res://Scenes/Turrets/"+self.name+".tscn").instantiate()
 		turret.position=get_global_mouse_position()

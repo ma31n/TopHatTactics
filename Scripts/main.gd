@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		$ColorRect/RichTextLabel.visible=true;
 		if(win==-1):
 			$ColorRect/retry.visible=true;
+			$ColorRect/back.visible=true;
 		elif(win==1):
 			$ColorRect/win.visible=true
 	
@@ -59,7 +60,7 @@ func _on_button_pressed() -> void:
 				match wave:
 					1: enemies=[["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyHardHat",0], ["EnemyHardHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyJesterHat",1], "NecessaryEvil"]
 					2: enemies=[["EnemyPilotHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyHardHat",1], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyPilotHat",1], ["EnemyPilotHat",0], ["EnemyPropellerHat",1], ["EnemyPropellerHat",0], ["NecessaryEvil"]]
-					3: enemies=["EnemyHardHat", "EnemyHardHat", "EnemyHardHat", "NecessaryEvil"]
+					3: enemies=[["EnemyPilotHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyHardHat",1], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyPilotHat",1], ["EnemyPilotHat",0], ["EnemyPropellerHat",1], ["EnemyPropellerHat",0], ["NecessaryEvil"]]
 					4: enemies=[["EnemyFootballHat",0], ["EnemyHardHat",0], ["EnemyJesterHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyPilotHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyJesterHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPilotHat",0], ["NecessaryEvil"]]
 					5: enemies=[["EnemyHardHat",0], ["EnemyHardHat",1], ["EnemyPilotHat",0], ["EnemyPilotHat",1], ["EnemyPilotHat",0], ["EnemyPilotHat",1], ["EnemyFootballHat",1], ["EnemyFootballHat",0], ["EnemyJesterHat",1], ["EnemyJesterHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyPropellerHat",1], ["EnemyPropellerHat",0], ["EnemyFootballHat",1], ["EnemyFootballHat",0], ["EnemyHardHat",0], ["EnemyHardHat",1], ["EnemyPilotHat",0], ["EnemyPilotHat",1], ["EnemyFootballHat",0], ["EnemyTopHat",0], ["EnemyTopHat",1],  ["NecessaryEvil"]]
 					6: enemies=[["EnemyCrownHat",0],["NecessaryEvil"]]
@@ -104,7 +105,7 @@ func _on_finish_area_entered(area: Area2D) -> void:
 
 func youwon():
 	win=1
-	$ColorRect.z_index=5
+	$ColorRect.z_index=10000;
 	var tween = create_tween()
 	$ColorRect.visible=true
 	$ColorRect/RichTextLabel.text="[center]YOU WON![center]";
@@ -141,3 +142,10 @@ func _on_finish_2_area_entered(area: Area2D) -> void:
 		tween.tween_property($ColorRect,"size",Vector2(300,150),0.1)
 		$AudioStreamPlayer2D.stream=load("res://SFX/death.ogg")
 		$AudioStreamPlayer2D.play()
+
+
+func _on_back_pressed() -> void:
+	$MenuSFX.play()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	Global.MP=Global.ogMP
+	Global.gamestate=Global.oggamestate

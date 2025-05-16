@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dwfw6lvnci6yw"]
+[gd_scene load_steps=24 format=4 uid="uid://dwfw6lvnci6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_4r282"]
 [ext_resource type="Theme" uid="uid://bqkpjiev1o5at" path="res://Scenes/smalldetails.tres" id="2_6l13l"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://co4bvk4ycpqdn" path="res://Scenes/Dragables/dragable_button3.tscn" id="7_cmody"]
 [ext_resource type="PackedScene" uid="uid://rjuyenln75vs" path="res://Scenes/Dragables/dragable_button4.tscn" id="8_ntb3v"]
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="9_knipw"]
+[ext_resource type="PackedScene" uid="uid://cw6a5haal0yq8" path="res://Scenes/cancel.tscn" id="12_malc0"]
+[ext_resource type="Script" path="res://Scripts/cancel.gd" id="13_ibb5u"]
 
 [sub_resource type="Environment" id="Environment_81cy2"]
 background_mode = 3
@@ -93,9 +95,9 @@ fit_content = true
 visible = false
 layout_mode = 0
 offset_left = 122.0
-offset_top = 93.0
-offset_right = 130.0
-offset_bottom = 101.0
+offset_top = 75.0
+offset_right = 167.0
+offset_bottom = 104.0
 text = "RETRY"
 
 [node name="win" type="Button" parent="ColorRect"]
@@ -106,6 +108,15 @@ offset_top = 100.0
 offset_right = 191.0
 offset_bottom = 131.0
 text = "CONTINUE"
+
+[node name="back" type="Button" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 80.0
+offset_top = 110.0
+offset_right = 222.0
+offset_bottom = 139.0
+text = "BACK TO MAIN MENU"
 
 [node name="Label" type="Label" parent="."]
 z_index = 500
@@ -257,8 +268,13 @@ text = "50 EACH"
 stream = ExtResource("9_knipw")
 max_polyphony = 10000000
 
+[node name="Cancel" parent="." instance=ExtResource("12_malc0")]
+z_index = 10
+script = ExtResource("13_ibb5u")
+
 [connection signal="pressed" from="ColorRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="ColorRect/win" to="." method="_on_win_pressed"]
+[connection signal="pressed" from="ColorRect/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Finish" to="." method="_on_finish_area_entered"]

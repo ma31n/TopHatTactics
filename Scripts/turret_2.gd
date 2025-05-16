@@ -88,6 +88,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true and dropped==false):
 		$MenuSFX.play()
 		dropped=true
+		Global.global_selected=!dropped;
 		Global.MP=Global.MP-50;
 		Global.cancel=false;
 
@@ -169,6 +170,7 @@ func _on_lvl_3_pressed(path) -> void:
 		n.text="✓";
 		n.self_modulate=Color.GREEN;
 		upgrade3=true;
+		Global.MP = Global.MP-upgrades[tab][2]["price"]
 
 func stunning():
 	var areas = $Turret.get_overlapping_areas()
@@ -193,7 +195,7 @@ func placement_check():
 		
 		if(body.name=="Unplaceable" or body.name=="Turret"):
 			placeable=false;
-			break;
+
 		else:
 			placeable=true;
 
