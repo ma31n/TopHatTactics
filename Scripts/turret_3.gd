@@ -4,7 +4,7 @@ var cooldown = 2;
 var rdy = true;
 @export var dropped = false;
 var turret_level = 0
-var damage = 4
+var damage = 5;
 
 var projscale = 1
 var airvis = 1;
@@ -14,14 +14,14 @@ var placeable = false;
 var upgrade3 = false;
 var upgrades = [
 	[
-		{"price":20,"desc":"Speed 1","state":0,"new":1.5},
-		{"price":30,"desc":"Speed 2", "state":0, "new": 1},
+		{"price":20,"desc":"Speed 1","state":0,"new":1.8},
+		{"price":40,"desc":"Speed 2", "state":0, "new": 1.6},
 		{"price":60,"desc":"Splash damage."}
 	],
 	[
-		{"price":20, "desc":"Range 1","new":120},
-		{"price":30, "desc": "Range 2","new":150},
-		{"price":60, "desc": "Infinite range"}
+		{"price":20, "desc":"Range 1","new":140},
+		{"price":40, "desc": "Range 2","new":170},
+		{"price":100, "desc": "Infinite range"}
 	]
 ]
 func _ready() -> void:
@@ -109,7 +109,7 @@ func _on_lvl_3_mouse_entered() -> void:
 
 func showbuttons(lvl):
 	var tab = $Control/TabContainer.current_tab
-	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][lvl]["price"])
 	
 func buy_upgrade(lvl):
 	var bought = false;
@@ -175,6 +175,7 @@ func placement_check():
 		
 		if(body.name=="Cancel"):
 			Global.cancel=false;
+			Global.global_selected=false;
 			queue_free()
 		
 		if(body.name=="Unplaceable" or body.name=="Turret"):

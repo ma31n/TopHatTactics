@@ -1,11 +1,16 @@
 extends Node
 
 var oggamestate = -1;
-var ogMP = 200;
+var levelMP = {
+	"Main":100,
+	"Level2":150,
+	"Level3":200
+}
+var ogMP = 100;
 var oglevelscompleted = 0;
 
 var gamestate = -1;
-var MP = 200;
+var MP = 100;
 var levelscompleted = 2;
 
 var musictime=0;

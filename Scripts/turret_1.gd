@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var cooldown = 0.5;
+var cooldown = 0.6;
 var rdy = true;
 @export var dropped = false;
 var turret_level = 0
-var damage = 1
+var damage = 1.5
 
 var airvis = 0;
 var pierce = false;
@@ -15,13 +15,13 @@ var upgrade3 = false;
 var upgrades = [
 	[
 		{"price":20,"desc":"Longer range 1","state":0,"new":70},
-		{"price":30,"desc":"Longer range 2", "state":0, "new": 80},
-		{"price":60,"desc":"Ability to see air enemies."}
+		{"price":40,"desc":"Longer range 2", "state":0, "new": 80},
+		{"price":80,"desc":"Ability to see air enemies."}
 	],
 	[
-		{"price":20, "desc":"More damage 1","new":1.5},
-		{"price":30, "desc": "More damage 2","new":2},
-		{"price":60, "desc": "Piercing damage."}
+		{"price":20, "desc":"More damage 1","new":2},
+		{"price":50, "desc": "More damage 2","new":2.5},
+		{"price":100, "desc": "Piercing, half damage."}
 	]
 ]
 func _ready() -> void:
@@ -70,6 +70,7 @@ func _on_timer_timeout() -> void:
 	rdy = true;
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true and dropped==false):
 		dropped=true
 		Global.global_selected=!dropped;
@@ -149,7 +150,7 @@ func _on_lvl_3_pressed(path) -> void:
 		$MenuSFX.play()
 		match tab:
 			0: airvis=1;
-			1: pierce=true;
+			1: pierce=true; damage=1;
 		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL3"); 
 		n.disabled=true;
 		n.text="✓";
@@ -169,6 +170,7 @@ func placement_check():
 	for body in bodies:
 		if(body.name=="Cancel"):
 			Global.cancel=false;
+			Global.global_selected=false;
 			queue_free()
 
 		if(body.name=="Unplaceable" or body.name=="Turret"):

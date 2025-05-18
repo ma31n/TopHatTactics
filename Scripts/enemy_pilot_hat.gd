@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var enemies = {
-	"EnemyPilotHat":[9, 0.001, 0]
+	"EnemyPilotHat":[10, 0.001, 0, 20]
 }
 var health = 10;
 var speed = 0.001;
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 				health=health-area.get_parent().damage
 				lastproj=area.get_parent()
 				if(health<=0):
-					Global.MP+=20;
+					Global.MP+=enemies[name][3];
 					get_parent().queue_free()
 
 		

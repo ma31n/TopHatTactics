@@ -19,12 +19,12 @@ var tab;
 var upgrades = [
 	[
 		{"price":20,"desc":"Range 1","state":0,"new":45},
-		{"price":30,"desc":"Range 2", "state":0, "new": 50},
+		{"price":40,"desc":"Range 2", "state":0, "new": 50},
 		{"price":60,"desc":"Added temporary slowdown."}
 	],
 	[
-		{"price":20, "desc":"Speed 1","new":1.5},
-		{"price":30, "desc": "Speed 2","new":1},
+		{"price":20, "desc":"Speed 1","new":1.8},
+		{"price":40, "desc": "Speed 2","new":1.6},
 		{"price":60, "desc": "1.5x Stun Length."}
 	]
 ]
@@ -118,7 +118,7 @@ func _on_lvl_3_mouse_entered() -> void:
 
 func showbuttons(lvl):
 	var tab = $Control/TabContainer.current_tab
-	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][lvl]["price"])
 	
 func buy_upgrade(lvl):
 	var bought = false;
@@ -191,6 +191,7 @@ func placement_check():
 	for body in bodies:
 		if(body.name=="Cancel"):
 			Global.cancel=false;
+			Global.global_selected=false;
 			queue_free()
 		
 		if(body.name=="Unplaceable" or body.name=="Turret"):

@@ -4,7 +4,7 @@ var cooldown = 1.5;
 var rdy = true;
 @export var dropped = false;
 var turret_level = 0
-var basedamage = 1
+var basedamage = 3
 var damage = 7
 
 var airvis = 0;
@@ -18,14 +18,14 @@ var upgrade3 = false;
 var tab;
 var upgrades = [
 	[
-		{"price":20,"desc":"Speed 1","state":0,"new":1},
-		{"price":30,"desc":"Speed 2", "state":0, "new": 0.8},
-		{"price":60,"desc":"Attacks multiple enemies."}
+		{"price":20,"desc":"Speed 1","state":0,"new":1.25},
+		{"price":50,"desc":"Speed 2", "state":0, "new": 1},
+		{"price":100,"desc":"Attacks multiple enemies."}
 	],
 	[
-		{"price":20, "desc":"Damage 1","new":8},
-		{"price":30, "desc": "Damage 2","new":9},
-		{"price":60, "desc": "Insta kill every 10sec."}
+		{"price":20, "desc":"Damage 1","new":4},
+		{"price":50, "desc": "Damage 2","new":5},
+		{"price":80, "desc": "Insta kill every 10sec."}
 	]
 ]
 func _ready() -> void:
@@ -37,6 +37,7 @@ func _ready() -> void:
 	_on_tab_container_tab_changed(0);
 
 func _physics_process(delta: float) -> void:
+	print($Instakill.time_left)
 	if(dropped==false):
 		placement_check()
 
@@ -54,16 +55,26 @@ func _physics_process(delta: float) -> void:
 		if(rdy == true and in_range.size()>0):
 			if(upgrade==true):
 				for enemy in in_range:
-					attack(enemy)
-					cooldown=3
+					if(airvis>=enemy.enemies[enemy.name][2]):
+						attack(enemy)
+						cooldown=3
+						
+						$AudioStreamPlayer2D.stream=load("res://SFX/Sword Slashing.ogg")
+						$AudioStreamPlayer2D.play()
+						tweening()
+						rdy=false
+						$Timer.start(cooldown/Global.gamestate)
+						damage=basedamage
 			else:
-				attack(in_range[0])
-			$AudioStreamPlayer2D.stream=load("res://SFX/Sword Slashing.ogg")
-			$AudioStreamPlayer2D.play()
-			tweening()
-			rdy=false
-			$Timer.start(cooldown/Global.gamestate)
-			damage=basedamage
+				if(airvis>=in_range[0].enemies[in_range[0].name][2]):
+					attack(in_range[0])
+					$AudioStreamPlayer2D.stream=load("res://SFX/Sword Slashing.ogg")
+					$AudioStreamPlayer2D.play()
+					tweening()
+					rdy=false
+					$Timer.start(cooldown/Global.gamestate)
+					damage=basedamage
+					
 	elif(dropped==false):
 		position=get_global_mouse_position()
 
@@ -104,7 +115,7 @@ func _on_lvl_3_mouse_entered() -> void:
 
 func showbuttons(lvl):
 	var tab = $Control/TabContainer.current_tab
-	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][0]["price"])
+	get_node("Control/TabContainer/PATH"+str(tab+1)+"/INFO").text=upgrades[tab][lvl]["desc"]+"\n"+"COST: "+str(upgrades[tab][lvl]["price"])
 	
 func buy_upgrade(lvl):
 	var bought = false;
@@ -190,6 +201,7 @@ func placement_check():
 		
 		if(body.name=="Cancel"):
 			Global.cancel=false;
+			Global.global_selected=false;
 			queue_free()
 			
 		if(body.name=="Unplaceable" or body.name=="Turret"):

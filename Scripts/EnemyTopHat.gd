@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 var enemies = {
-	"EnemyTopHat": [5, 0.001, 0],
-	"EnemyHardHat": [10, 0.0005, 0],
-	"EnemyPropellerHat": [6, 0.0015, 1],
-	"EnemyJesterHat": [7, 0.0011, 0],
-	"EnemyFootballHat": [12, 0.0013, 0] ,
-	"EnemyCrownHat": [100, 0.0005, 0]
+	"EnemyTopHat": [5, 0.001, 0, 10], #HEALTH, SPEED, AIRVIS, MONEY
+	"EnemyTopHatSpeedy": [6, 0.00125, 0, 10],
+	"EnemyHardHat": [10, 0.0008, 0, 20],
+	"EnemyPropellerHat": [6, 0.0015, 1, 10],
+	"EnemyJesterHat": [7, 0.0008, 0, 20],
+	"EnemyFootballHat": [12, 0.0013, 0, 30],
+	"EnemyCrownHat": [300, 0.0009, 0],
 }
 var health;
 var speed;
@@ -42,7 +43,7 @@ func _physics_process(delta: float) -> void:
 				health=health-area.get_parent().damage
 				lastproj=area.get_parent()
 				if(health<=0):
-					Global.MP+=20
+					Global.MP+=enemies[name][3]
 					get_parent().queue_free()
 
 		

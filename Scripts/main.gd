@@ -7,6 +7,10 @@ var win = 0;
 @export var level = 0
 var paths = []
 func _ready() -> void:
+	
+	Global.ogMP=Global.levelMP[self.name];
+	Global.MP=Global.levelMP[self.name];
+	Global.gamestate=-1;
 	for child in self.get_children():
 		if "Path" in child.name:
 			paths.append(child)
@@ -42,12 +46,18 @@ func _on_button_pressed() -> void:
 		match level:
 			1:
 				match wave:
-					1: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["NecessaryEvil",0]]
-					2: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["NecessaryEvil"]]
-					3: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["NecessaryEvil"]]
-					4: enemies=[["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["NecessaryEvil"]]
-					5: enemies=[["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyPropellerHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["NecessaryEvil"]]
-					6: youwon()
+					1: enemies=[["EnemyTopHat",0,2],["EnemyTopHat",0,2],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.1],["NecessaryEvil"]]
+					#1: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["NecessaryEvil"]]
+					#2: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["NecessaryEvil"]]
+					#3: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0],["NecessaryEvil"]]
+					#4: enemies=[["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
+					#5: enemies=[["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
+					#6: enemies=[["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
+					#7: enemies=[["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0],["NecessaryEvil"]]
+					#8: enemies=[["EnemyPropellerHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyTopHat",0], ["EnemyPropellerHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
+					#9: enemies=[["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0],["NecessaryEvil"]]
+					#10: enemies=[["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0],["NecessaryEvil"]]
+					11: youwon()
 			2:
 				match wave:
 					1: enemies=[["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyHardHat",0], ["EnemyHardHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], "NecessaryEvil"]
@@ -87,13 +97,15 @@ func _on_timer_timeout() -> void:
 			path.add_child(enemy)
 			path.rotate(deg_to_rad(0))
 			path.rotates=false
+			path.loop=true;
 			paths[enemyname[1]].add_child(path)
-			$Timer.start(float(spawnspeed)/Global.gamestate)
+			$Timer.start(float(enemyname[2])/Global.gamestate)
 
 
 func _on_finish_area_entered(area: Area2D) -> void:
 	if area.name=="Objective":
 		win=-1
+		$Button.visible=false;
 		$ColorRect.z_index=5
 		var tween = create_tween()
 		$ColorRect.visible=true
