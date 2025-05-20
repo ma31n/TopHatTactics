@@ -37,6 +37,12 @@ func _physics_process(delta: float) -> void:
 	var areas = $Area2D.get_overlapping_areas()
 	for area in areas:
 		if area.name == "Projectile":
+			if(area.get_parent().name=="projectile_4"):
+				if(area.get_parent().target==null):
+					area.get_parent().target=self
+				elif(area.get_parent().target!=self):
+					continue
+				
 			if(area.get_parent()!=lastproj):
 				$AudioStreamPlayer2D.stream=load("res://SFX/EnemyHurt1.ogg")
 				$AudioStreamPlayer2D.play()

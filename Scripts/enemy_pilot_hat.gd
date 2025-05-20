@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var enemies = {
-	"EnemyPilotHat":[10, 0.001, 0, 20]
+	"EnemyPilotHat":[10, 0.001, 1, 20]
 }
 var health = 10;
 var speed = 0.001;
@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	falling()
 	death()
 	if(fall==0):
+		enemies[self.name][2]=0;
 		tween.stop()
 		self.rotation_degrees=0;
 		path.speed=speed;
@@ -42,6 +43,13 @@ func _physics_process(delta: float) -> void:
 	var areas = $Area2D.get_overlapping_areas()
 	for area in areas:
 		if area.name == "Projectile":
+			
+			if(area.get_parent().name=="projectile_4"):
+				if(area.get_parent().target==null):
+					area.get_parent().target=self
+				elif(area.get_parent().target!=self):
+					continue
+			
 			if(area.get_parent()!=lastproj):
 				$AudioStreamPlayer2D.stream=load("res://SFX/HatPlace.ogg")
 				$AudioStreamPlayer2D.play()

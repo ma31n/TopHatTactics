@@ -76,7 +76,7 @@ func _on_timer_timeout() -> void:
 	rdy = true;
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and placeable==true and dropped==false):
+	if((event is InputEventMouseButton and event.is_action_pressed("leftClick", false)) and placeable==true and dropped==false):
 		$MenuSFX.play()
 		dropped=true
 		Global.global_selected=!dropped;
@@ -84,7 +84,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		Global.cancel=false;
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and dropped==true):
+	if((event is InputEventMouseButton and event.is_action_pressed("leftClick", false)) and dropped==true):
 		$Control.visible=!$Control.visible
 		Global.openedUpgrade=$Control;
 		$MenuSFX.play()

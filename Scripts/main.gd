@@ -38,6 +38,9 @@ func _physics_process(delta: float) -> void:
 	if(get_tree().get_nodes_in_group("alive").size()==0 and enemies.size()==0 and Global.gamestate>0):
 		Global.gamestate=-1
 		wave+=1
+		if(wave>15):
+			youwon()
+		
 
 func _on_button_pressed() -> void:
 	$MenuSFX.play()
@@ -46,18 +49,22 @@ func _on_button_pressed() -> void:
 		match level:
 			1:
 				match wave:
-					1: enemies=[["EnemyTopHat",0,2],["EnemyTopHat",0,2],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.1],["NecessaryEvil"]]
-					#1: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["NecessaryEvil"]]
-					#2: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["NecessaryEvil"]]
-					#3: enemies=[["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0],["NecessaryEvil"]]
-					#4: enemies=[["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
-					#5: enemies=[["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
-					#6: enemies=[["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
-					#7: enemies=[["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0],["NecessaryEvil"]]
-					#8: enemies=[["EnemyPropellerHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyTopHat",0], ["EnemyPropellerHat",0], ["EnemyHardHat",0], ["EnemyTopHat",0],["NecessaryEvil"]]
-					#9: enemies=[["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0],["NecessaryEvil"]]
-					#10: enemies=[["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyPropellerHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyHardHat",0], ["EnemyPropellerHat",0], ["EnemyTopHat",0], ["EnemyHardHat",0], ["EnemyHardHat",0],["NecessaryEvil"]]
-					11: youwon()
+					1: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
+					2: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
+					3: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyHardHat",0,1],["NecessaryEvil"]]
+					4: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyTopHat",0,0.5],["NecessaryEvil"]]
+					5: enemies=[["EnemyHardHat",0,1],["EnemyTopHat",0,0.5],["EnemyHardHat",0,1],["EnemyTopHat",0,0.5],["EnemyHardHat",0,1],["EnemyTopHat",0,0.5],["EnemyHardHat",0,1],["EnemyHardHat",0,0.7],["NecessaryEvil"]]
+					6: enemies=[["EnemyHardHat",0,1],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["NecessaryEvil"]]
+					7: enemies=[["EnemyHardHat",0,1],["EnemyTopHat",0,0.8],["EnemyHardHat",0,0.8],["EnemyTopHat",0,0.8],["EnemyHardHat",0,0.8],["EnemyTopHat",0,0.8],["EnemyHardHat",0,0.8],["EnemyPropellerHat",0,1],["NecessaryEvil"]]
+					8: enemies=[["EnemyPropellerHat",0,1],["EnemyTopHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyPropellerHat",0,1],["EnemyTopHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyPropellerHat",0,1],["NecessaryEvil"]]
+					9: enemies=[["EnemyPropellerHat",0,1],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["NecessaryEvil"]]
+					10: enemies=[["EnemyPropellerHat",0,1],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyPropellerHat",0,1],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyPropellerHat",0,1],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyPropellerHat",0,1],["EnemyHardHat",0,0.5],["EnemyHardHat",0,0.5],["EnemyPropellerHat",0,0.5],["NecessaryEvil"]]
+					11: enemies=[["EnemyTopHatSpeedy",0,1],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["NecessaryEvil"]]
+					12: enemies=[["EnemyTopHatSpeedy",0,1],["EnemyTopHatSpeedy",0,0.7],["EnemyTopHatSpeedy",0,0.7],["EnemyHardHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyPropellerHat",0,0.7],["EnemyTopHatSpeedy",0,1.5],["EnemyTopHatSpeedy",0,0.7],["EnemyTopHatSpeedy",0,0.7],["EnemyHardHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyPropellerHat",0,1.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["NecessaryEvil"]]
+					13: enemies=[["EnemyPropellerHat",0,1],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["NecessaryEvil"]]
+					14: enemies=[["EnemyHardHat",0,1],["EnemyHardHat",0,0.2],["EnemyHardHat",0,0.2],["EnemyHardHat",0,0.2],["EnemyHardHat",0,0.2],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyHardHat",0,1],["EnemyHardHat",0,0.2],["EnemyHardHat",0,0.2],["EnemyHardHat",0,0.2],["EnemyHardHat",0,0.2],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["EnemyPropellerHat",0,0.5],["NecessaryEvil"]]
+					15: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,0.3],["EnemyTopHat",0,0.3],["EnemyTopHat",0,0.3],["EnemyTopHat",0,0.3],["EnemyTopHatSpeedy",0,1],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyTopHatSpeedy",0,0.3],["EnemyHardHat",0,1],["EnemyHardHat",0,0.3],["EnemyHardHat",0,0.3],["EnemyHardHat",0,0.3],["EnemyHardHat",0,0.3],["EnemyHardHat",0,0.3],["EnemyHardHat",0,0.3],["EnemyPropellerHat",0,1],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyPropellerHat",0,0.3],["EnemyTopHat",0,0.5],["EnemyTopHatSpeedy",0,0.5],["EnemyHardHat",0,0.5],["EnemyPropellerHat",0,0.5],["NecessaryEvil"]]
+
 			2:
 				match wave:
 					1: enemies=[["EnemyTopHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyHardHat",0], ["EnemyHardHat",1], ["EnemyTopHat",0], ["EnemyTopHat",1], ["EnemyTopHat",0], "NecessaryEvil"]
@@ -100,6 +107,7 @@ func _on_timer_timeout() -> void:
 			path.loop=true;
 			paths[enemyname[1]].add_child(path)
 			$Timer.start(float(enemyname[2])/Global.gamestate)
+		
 
 
 func _on_finish_area_entered(area: Area2D) -> void:
