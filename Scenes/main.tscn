@@ -61,6 +61,52 @@ size = Vector2(27.5, 43.75)
 script = ExtResource("1_jmla6")
 level = 1
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 500
+offset_left = 288.0
+offset_top = 162.0
+offset_right = 288.0
+offset_bottom = 162.0
+color = Color(0, 0, 0, 0.847059)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_top = 31.0
+offset_right = 300.0
+offset_bottom = 77.0
+bbcode_enabled = true
+text = "[center]THE RIVAL HATMAKER STOLE YOUR PRECIOUS HAT :([center]"
+fit_content = true
+
+[node name="retry" type="Button" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 122.0
+offset_top = 75.0
+offset_right = 178.0
+offset_bottom = 106.0
+text = "RETRY"
+
+[node name="win" type="Button" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 191.0
+offset_bottom = 131.0
+text = "CONTINUE"
+
+[node name="back" type="Button" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 80.0
+offset_top = 110.0
+offset_right = 222.0
+offset_bottom = 141.0
+text = "BACK TO MAIN MENU"
+
 [node name="Objective" parent="." instance=ExtResource("1_lk6rx")]
 position = Vector2(425, 170)
 
@@ -155,52 +201,6 @@ position = Vector2(7, 205)
 position = Vector2(-77, 90)
 shape = SubResource("RectangleShape2D_ovpxw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-z_index = 500
-offset_left = 288.0
-offset_top = 162.0
-offset_right = 288.0
-offset_bottom = 162.0
-color = Color(0, 0, 0, 0.847059)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-visible = false
-layout_mode = 0
-offset_top = 31.0
-offset_right = 300.0
-offset_bottom = 77.0
-bbcode_enabled = true
-text = "[center]THE RIVAL HATMAKER STOLE YOUR PRECIOUS HAT :([center]"
-fit_content = true
-
-[node name="retry" type="Button" parent="ColorRect"]
-visible = false
-layout_mode = 0
-offset_left = 122.0
-offset_top = 75.0
-offset_right = 178.0
-offset_bottom = 106.0
-text = "RETRY"
-
-[node name="win" type="Button" parent="ColorRect"]
-visible = false
-layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 191.0
-offset_bottom = 131.0
-text = "CONTINUE"
-
-[node name="back" type="Button" parent="ColorRect"]
-visible = false
-layout_mode = 0
-offset_left = 80.0
-offset_top = 110.0
-offset_right = 222.0
-offset_bottom = 141.0
-text = "BACK TO MAIN MENU"
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0ikif")
 
@@ -276,10 +276,10 @@ script = ExtResource("11_03wmw")
 stream = ExtResource("12_ciqs5")
 max_polyphony = 10000
 
+[connection signal="pressed" from="ColorRect/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="ColorRect/win" to="." method="_on_win_pressed"]
+[connection signal="pressed" from="ColorRect/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Finish" to="." method="_on_finish_area_entered"]
 [connection signal="area_entered" from="Finish2" to="." method="_on_finish_area_entered"]
-[connection signal="pressed" from="ColorRect/retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="ColorRect/win" to="." method="_on_win_pressed"]
-[connection signal="pressed" from="ColorRect/back" to="." method="_on_back_pressed"]

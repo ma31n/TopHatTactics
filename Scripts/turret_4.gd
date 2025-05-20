@@ -5,7 +5,7 @@ var rdy = true;
 @export var dropped = false;
 var turret_level = 0
 var basedamage = 3
-var damage = 7
+var damage = 3
 
 var airvis = 0;
 var pierce = false;
@@ -20,7 +20,7 @@ var upgrades = [
 	[
 		{"price":20,"desc":"Speed 1","state":0,"new":1.25},
 		{"price":50,"desc":"Speed 2", "state":0, "new": 1},
-		{"price":100,"desc":"Attacks multiple enemies."}
+		{"price":100,"desc":"Attacks multiple enemies, cuts speed."}
 	],
 	[
 		{"price":20, "desc":"Damage 1","new":4},
@@ -153,8 +153,7 @@ func _on_lvl_2_pressed(path) -> void:
 		if(upgrade3==false):
 			n2.disabled=false;
 			n2.text=n2.name;
-		else:
-			n2.text="❌";
+
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"] and upgrade3!=true):
@@ -162,6 +161,14 @@ func _on_lvl_3_pressed(path) -> void:
 		match tab:
 			0: upgrade = true;
 			1: $Instakill.start()
+		
+		if(path=="PATH1"):
+			get_node("Control/TabContainer/PATH2/Buttons/LVL3").text="❌";
+			get_node("Control/TabContainer/PATH2/Buttons/LVL3").disabled=true;
+		else:
+			get_node("Control/TabContainer/PATH1/Buttons/LVL3").text="❌";
+			get_node("Control/TabContainer/PATH1/Buttons/LVL3").disabled=true;
+		
 		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL3"); 
 		n.disabled=true;
 		n.text="✓";

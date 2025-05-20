@@ -1,17 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://co4bvk4ycpqdn"]
+[gd_scene load_steps=3 format=3 uid="uid://co4bvk4ycpqdn"]
 
 [ext_resource type="Script" path="res://Scenes/Dragables/dragable_button.gd" id="1_46b42"]
 [ext_resource type="Texture2D" uid="uid://bbfyuaqe85um2" path="res://Sprites/Tower_Based_Icon.png" id="1_tpbau"]
-[ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="3_qodhr"]
 
 [node name="turret_3" type="TextureButton"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_tpbau")
 script = ExtResource("1_46b42")
-
-[node name="MenuSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_qodhr")
-max_polyphony = 10000
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -156,8 +156,7 @@ func _on_lvl_2_pressed(path) -> void:
 		if(upgrade3==false):
 			n2.disabled=false;
 			n2.text=n2.name;
-		else:
-			n2.text="❌";
+
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"] and upgrade3!=true):
@@ -165,6 +164,14 @@ func _on_lvl_3_pressed(path) -> void:
 		match tab:
 			0: slowdown=true
 			1: stunl=stunl*1.5
+		
+		if(path=="PATH1"):
+			get_node("Control/TabContainer/PATH2/Buttons/LVL3").text="❌";
+			get_node("Control/TabContainer/PATH2/Buttons/LVL3").disabled=true;
+		else:
+			get_node("Control/TabContainer/PATH1/Buttons/LVL3").text="❌";
+			get_node("Control/TabContainer/PATH1/Buttons/LVL3").disabled=true;
+		
 		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL3"); 
 		n.disabled=true;
 		n.text="✓";

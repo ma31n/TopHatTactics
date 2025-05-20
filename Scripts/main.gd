@@ -114,7 +114,7 @@ func _on_finish_area_entered(area: Area2D) -> void:
 	if area.name=="Objective":
 		win=-1
 		$Button.visible=false;
-		$ColorRect.z_index=5
+		
 		var tween = create_tween()
 		$ColorRect.visible=true
 		tween.set_parallel(true)
@@ -154,7 +154,6 @@ func _on_win_pressed() -> void:
 func _on_finish_2_area_entered(area: Area2D) -> void:
 	if area.name=="Objective":
 		win=-1
-		$ColorRect.z_index=500
 		var tween = create_tween()
 		$ColorRect.visible=true
 		tween.set_parallel(true)

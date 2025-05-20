@@ -26,7 +26,6 @@ var upgrades = [
 ]
 func _ready() -> void:
 	$AudioStreamPlayer2D.stream=load("res://SFX/baseball-cavalry-sting-short-sustain-80564.ogg")
-	$AudioStreamPlayer2D.play()
 	
 	$Area2D/CollisionShape2D.shape = $Area2D/CollisionShape2D.shape.duplicate()
 	
@@ -82,6 +81,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		Global.global_selected=!dropped;
 		Global.MP=Global.MP-50;
 		Global.cancel=false;
+		$AudioStreamPlayer2D.play()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if((event is InputEventMouseButton and event.is_action_pressed("leftClick", false)) and dropped==true):
@@ -147,8 +147,7 @@ func _on_lvl_2_pressed(path) -> void:
 		if(upgrade3==false):
 			n2.disabled=false;
 			n2.text=n2.name;
-		else:
-			n2.text="❌";
+
 
 func _on_lvl_3_pressed(path) -> void:
 	if(Global.MP>=upgrades[tab][2]["price"] and upgrade3!=true):
@@ -156,6 +155,14 @@ func _on_lvl_3_pressed(path) -> void:
 		match tab:
 			0: projscale=1.5;
 			1: $Area2D/CollisionShape2D.shape.radius=1000;
+			
+		if(path=="PATH1"):
+			get_node("Control/TabContainer/PATH2/Buttons/LVL3").text="❌";
+			get_node("Control/TabContainer/PATH2/Buttons/LVL3").disabled=true;
+		else:
+			get_node("Control/TabContainer/PATH1/Buttons/LVL3").text="❌";
+			get_node("Control/TabContainer/PATH1/Buttons/LVL3").disabled=true;
+			
 		var n = get_node("Control/TabContainer/"+path+"/Buttons/LVL3"); 
 		n.disabled=true;
 		n.text="✓";

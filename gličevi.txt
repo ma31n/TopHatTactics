@@ -1,0 +1,15 @@
+trash can instead of x
+insta kill on boss fight
+visible stun
+pause timer
+close upgrade tabs when defeated/won
+
+
+
+
+
+z index on congrats screen+
+piercing projectile air enemy+
+holding button over turret+
+some missing x on third path+
+baseball sound when placed+

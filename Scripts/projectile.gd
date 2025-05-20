@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 			if(area.get_parent()!=lastobj):
 				var group = get_tree().get_nodes_in_group("alive")
 				for i in range(0,len(group)-1):
-					if(group[i]==area.get_parent()):
+					if(group[i]==area.get_parent() and area.get_parent().enemies[area.get_parent()][2]==0):
 						var dir = self.position.direction_to(group[i-1].get_parent().global_position)
 						enemyposition(dir)
 						pierce=false
