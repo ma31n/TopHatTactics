@@ -13,6 +13,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	progress_ratio += dir*speed*Global.gamestate*stun*slow;
 	
+	if(progress_ratio>=1):
+		dir=-1;
+	
 
 func direction(new_dir):
 	dir=new_dir;

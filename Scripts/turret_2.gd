@@ -216,6 +216,7 @@ func placement_check():
 		
 		if(body.name=="Unplaceable" or body.name=="Turret"):
 			placeable=false;
+			break;
 
 		else:
 			placeable=true;

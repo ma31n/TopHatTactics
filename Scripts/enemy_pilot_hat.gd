@@ -88,8 +88,9 @@ func _on_slow_timeout() -> void:
 	get_parent().slow=1
 
 func death():
-	var areas = $Area2D.get_overlapping_areas()
-	for area in areas:
-		if area.name=="death":
-			Global.MP=Global.MP-50
-			get_parent().queue_free()
+	pass
+	#var areas = $Area2D.get_overlapping_areas()
+	#for area in areas:
+		#if area.name=="death":
+			#Global.MP=Global.MP-50
+			#get_parent().queue_free()

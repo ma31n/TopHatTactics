@@ -18,7 +18,7 @@ var upgrades = [
 	[
 		{"price":20,"desc":"Longer range 1","state":0,"new":70},
 		{"price":40,"desc":"Longer range 2", "state":0, "new": 80},
-		{"price":80,"desc":"Ability to see air enemies."}
+		{"price":60,"desc":"Ability to see air enemies."}
 	],
 	[
 		{"price":20, "desc":"More damage 1","new":2},
@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 				var projectile = load("res://Scenes/projectile.tscn").instantiate()
 				var dirtoenemy = position.direction_to(target.get_parent().global_position)
 				projectile.enemyposition(dirtoenemy)
+				projectile.target(target);
 				projectile.pierce=pierce
 				projectile.position = self.position
 				projectile.damage = damage;
@@ -172,7 +173,6 @@ func stunning():
 	for area in areas:
 		if area.name=="AOE" and $StunTimer.is_stopped():
 			$StunTimer.start()
-			break;
 	
 	if(!$StunTimer.is_stopped()):
 		if(tween==null):
@@ -189,7 +189,6 @@ func stunning():
 
 func placement_check():
 	var bodies = $Turret.get_overlapping_areas();
-	
 	for body in bodies:
 		if(body.name=="Cancel"):
 			Global.cancel=false;
@@ -198,6 +197,7 @@ func placement_check():
 
 		if(body.name=="Unplaceable" or body.name=="Turret"):
 			placeable=false;
+			break;
 
 		else:
 			placeable=true;

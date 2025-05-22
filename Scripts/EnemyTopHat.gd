@@ -3,10 +3,11 @@ extends CharacterBody2D
 var enemies = {
 	"EnemyTopHat": [5, 0.001, 0, 10], #HEALTH, SPEED, AIRVIS, MONEY
 	"EnemyTopHatSpeedy": [6, 0.00125, 0, 10],
-	"EnemyHardHat": [10, 0.0008, 0, 20],
-	"EnemyPropellerHat": [6, 0.0015, 1, 10],
-	"EnemyJesterHat": [7, 0.0008, 0, 20],
-	"EnemyFootballHat": [12, 0.0013, 0, 30],
+	"EnemyHardHat": [12, 0.0008, 0, 10],
+	"EnemyHardHatBlue": [36, 0.0008, 0, 10],
+	"EnemyPropellerHat": [6, 0.0014, 1, 10],
+	"EnemyJesterHat": [7, 0.0008, 0, 10],
+	"EnemyFootballHat": [15, 0.0013, 0, 20],
 	"EnemyCrownHat": [300, 0.0009, 0],
 }
 var health;
@@ -36,6 +37,8 @@ func _physics_process(delta: float) -> void:
 			get_parent().stun=0
 
 	var areas = $Area2D.get_overlapping_areas()
+	if(self.name=="EnemyJesterHat"):
+		areas = $AOE.get_overlapping_areas()
 	for area in areas:
 		if area.name == "Projectile":
 			if(area.get_parent().name=="projectile_4"):
@@ -45,6 +48,7 @@ func _physics_process(delta: float) -> void:
 					continue
 				
 			if(area.get_parent()!=lastproj):
+				
 				$AudioStreamPlayer2D.stream=load("res://SFX/EnemyHurt1.ogg")
 				$AudioStreamPlayer2D.play()
 				health=health-area.get_parent().damage
@@ -76,11 +80,12 @@ func _on_slow_timeout() -> void:
 	get_parent().slow=1
 
 func death():
-	var areas = $Area2D.get_overlapping_areas()
-	for area in areas:
-		if area.name=="death":
+	pass
+	#var areas = $Area2D.get_overlapping_areas()
+	#for area in areas:
+		#if area.name=="death":
 			#Global.MP=Global.MP-50
-			get_parent().queue_free()
+			#get_parent().queue_free()
 
 func _draw() -> void:
 	if(self.name=="EnemyJesterHat"):

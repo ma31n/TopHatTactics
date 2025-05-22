@@ -2,7 +2,7 @@ extends Node
 
 var oggamestate = -1;
 var levelMP = {
-	"Main":10000,
+	"Main":100,
 	"Level2":150,
 	"Level3":200
 }

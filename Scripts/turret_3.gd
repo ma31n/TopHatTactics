@@ -53,12 +53,13 @@ func _physics_process(delta: float) -> void:
 			for enemy in in_range:
 				if(enemy.enemies[enemy.name][2]==1):
 					target=enemy;
-					break
+					break;
 			if(rdy == true and airvis>=target.enemies[target.name][2]):
 				$AnimatedSprite2D.play("attack")
 				var projectile = load("res://Scenes/projectile_3.tscn").instantiate()
 				var dirtoenemy = position.direction_to(target.get_parent().global_position)
 				projectile.enemyposition(dirtoenemy)
+				projectile.target(target);
 				projectile.pierce=pierce
 				projectile.position = self.position
 				projectile.damage = damage;
@@ -201,6 +202,7 @@ func placement_check():
 		
 		if(body.name=="Unplaceable" or body.name=="Turret"):
 			placeable=false;
+			break;
 
 		else:
 			placeable=true;
