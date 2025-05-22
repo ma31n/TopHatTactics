@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw6a5haal0yq8"]
 
-[ext_resource type="Texture2D" uid="uid://d02uogl3ygel" path="res://Sprites/UI/cancel.png" id="1_ckth5"]
+[ext_resource type="Texture2D" uid="uid://v7thsl50mcwb" path="res://Sprites/UI/trash1.png" id="1_3qdts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1u82"]
-size = Vector2(42, 42)
+size = Vector2(21, 31)
 
 [node name="Cancel" type="Area2D"]
 position = Vector2(488, 29)
 
 [node name="Cancel" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_p1u82")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_ckth5")
+texture = ExtResource("1_3qdts")

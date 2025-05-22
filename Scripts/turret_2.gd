@@ -13,6 +13,7 @@ var stunl = 0.3;
 var slowdown = false;
 
 var tween;
+var tween_stun=null;
 var placeable = false;
 var upgrade3 = false;
 var tab;
@@ -184,6 +185,18 @@ func stunning():
 	for area in areas:
 		if area.name=="AOE" and $StunTimer.is_stopped():
 			$StunTimer.start()
+	
+	if(!$StunTimer.is_stopped()):
+		if(tween_stun==null):
+			tween_stun = create_tween()
+			tween_stun.set_loops()
+			tween_stun.tween_property($AnimatedSprite2D,"modulate", Color.YELLOW, 0.3);
+			tween_stun.tween_property($AnimatedSprite2D,"modulate", Color.WHITE, 0.3);
+			tween_stun.play()
+	elif($StunTimer.is_stopped()):
+		if(tween_stun!=null):
+			tween_stun.kill()
+			$AnimatedSprite2D.modulate=Color.WHITE;
 
 func tweening():
 	tween = create_tween()

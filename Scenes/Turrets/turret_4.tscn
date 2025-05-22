@@ -351,7 +351,7 @@ offset_bottom = 150.0
 theme = ExtResource("5_xgoao")
 text = "SELL"
 
-[node name="MenuSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="MenuSFX" type="AudioStreamPlayer2D" parent="." groups=["SFX"]]
 stream = ExtResource("4_ghd6v")
 max_polyphony = 10000
 

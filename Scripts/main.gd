@@ -49,7 +49,7 @@ func _on_button_pressed() -> void:
 		match level:
 			1:
 				match wave:
-					1: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
+					1: enemies=[["EnemyJesterHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
 					2: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
 					3: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyHardHat",0,1],["NecessaryEvil"]]
 					4: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyTopHat",0,0.5],["NecessaryEvil"]]
@@ -124,6 +124,7 @@ func _on_finish_area_entered(area: Area2D) -> void:
 		$AudioStreamPlayer2D.play()
 
 func youwon():
+	Global.openedUpgrade=null;
 	win=1
 	$ColorRect.z_index=10000;
 	var tween = create_tween()

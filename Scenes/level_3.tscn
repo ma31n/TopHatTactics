@@ -260,7 +260,7 @@ stream = ExtResource("11_ujdp5")
 
 [node name="Cancel" parent="." instance=ExtResource("12_1s2ei")]
 z_index = 10
-position = Vector2(488, 23)
+position = Vector2(555, 205)
 script = ExtResource("13_sjrdn")
 
 [connection signal="pressed" from="ColorRect/retry" to="." method="_on_retry_pressed"]

@@ -24,6 +24,8 @@ var upgrades = [
 		{"price":100, "desc": "Infinite range"}
 	]
 ]
+
+var tween = null;
 func _ready() -> void:
 	$AudioStreamPlayer2D.stream=load("res://SFX/baseball-cavalry-sting-short-sustain-80564.ogg")
 	
@@ -175,6 +177,18 @@ func stunning():
 	for area in areas:
 		if area.name=="AOE" and $StunTimer.is_stopped():
 			$StunTimer.start()
+	
+	if(!$StunTimer.is_stopped()):
+		if(tween==null):
+			tween = create_tween()
+			tween.set_loops()
+			tween.tween_property($AnimatedSprite2D,"modulate", Color.YELLOW, 0.3);
+			tween.tween_property($AnimatedSprite2D,"modulate", Color.WHITE, 0.3);
+			tween.play()
+	elif($StunTimer.is_stopped()):
+		if(tween!=null):
+			tween.kill()
+			$AnimatedSprite2D.modulate=Color.WHITE;
 
 func placement_check():
 	var bodies = $Turret.get_overlapping_areas();

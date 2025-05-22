@@ -270,6 +270,7 @@ shape = SubResource("RectangleShape2D_u4eyb")
 
 [node name="Cancel" parent="." instance=ExtResource("10_ilidf")]
 z_index = 10
+position = Vector2(555, 205)
 script = ExtResource("11_03wmw")
 
 [node name="MenuSFX" type="AudioStreamPlayer2D" parent="." groups=["SFX"]]

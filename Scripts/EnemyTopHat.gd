@@ -29,6 +29,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	death()
 	
+	
 	if stun==true and $Stun.is_stopped() and enemies[self.name][2]!=1:
 		if(self.name!="EnemyJesterHat"):
 			$Stun.start(stun_length/Global.gamestate)
@@ -80,3 +81,7 @@ func death():
 		if area.name=="death":
 			#Global.MP=Global.MP-50
 			get_parent().queue_free()
+
+func _draw() -> void:
+	if(self.name=="EnemyJesterHat"):
+		draw_circle(Vector2(0,0),$AOE/CollisionShape2D.shape.radius,Color(255,255,0,0.1));

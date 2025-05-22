@@ -7,12 +7,15 @@ var turret_level = 0
 var basedamage = 3
 var damage = 3
 
+var instakill = false;
+
 var airvis = 0;
 var pierce = false;
 
 var upgrade = false;
 
 var tween;
+var tween_stun = null;
 var placeable=false;
 var upgrade3 = false;
 var tab;
@@ -37,7 +40,23 @@ func _ready() -> void:
 	_on_tab_container_tab_changed(0);
 
 func _physics_process(delta: float) -> void:
-	print($Instakill.time_left)
+	#print($Instakill.time_left)
+	
+	var prevstate = 0;
+	if(instakill==true):
+		if(Global.gamestate<=0 and !$Instakill.is_stopped()):
+			$Instakill.paused=true;
+		elif(Global.gamestate>0):
+			$Instakill.paused=false;
+			
+			#if(prevstate!=Global.gamestate):
+				#var temp = $Instakill.time_left;
+				#$Instakill.stop()
+				#$Instakill.start(temp/Global.gamestate);
+	#prevstate=Global.gamestate;
+		
+		
+	
 	if(dropped==false):
 		placement_check()
 
@@ -56,6 +75,8 @@ func _physics_process(delta: float) -> void:
 			if(upgrade==true):
 				for enemy in in_range:
 					if(airvis>=enemy.enemies[enemy.name][2]):
+						if(enemy.name=="EnemyCrownHat" and damage>1000):
+							damage=basedamage
 						attack(enemy)
 						cooldown=3
 						
@@ -67,6 +88,8 @@ func _physics_process(delta: float) -> void:
 						damage=basedamage
 			else:
 				if(airvis>=in_range[0].enemies[in_range[0].name][2]):
+					if(in_range[0].name=="EnemyCrownHat" and damage>1000):
+							damage=basedamage
 					attack(in_range[0])
 					$AudioStreamPlayer2D.stream=load("res://SFX/Sword Slashing.ogg")
 					$AudioStreamPlayer2D.play()
@@ -160,7 +183,7 @@ func _on_lvl_3_pressed(path) -> void:
 		$MenuSFX.play()
 		match tab:
 			0: upgrade = true;
-			1: $Instakill.start()
+			1: $Instakill.start(); instakill = true;
 		
 		if(path=="PATH1"):
 			get_node("Control/TabContainer/PATH2/Buttons/LVL3").text="❌";
@@ -181,6 +204,18 @@ func stunning():
 	for area in areas:
 		if area.name=="AOE" and $StunTimer.is_stopped():
 			$StunTimer.start()
+	
+	if(!$StunTimer.is_stopped()):
+		if(tween_stun==null):
+			tween_stun = create_tween()
+			tween_stun.set_loops()
+			tween_stun.tween_property($AnimatedSprite2D,"modulate", Color.YELLOW, 0.3);
+			tween_stun.tween_property($AnimatedSprite2D,"modulate", Color.WHITE, 0.3);
+			tween_stun.play()
+	elif($StunTimer.is_stopped()):
+		if(tween_stun!=null):
+			tween_stun.kill()
+			$AnimatedSprite2D.modulate=Color.WHITE;
 
 func tweening():
 	tween = create_tween()
