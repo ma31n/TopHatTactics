@@ -30,8 +30,7 @@ func _physics_process(delta: float) -> void:
 	match Global.gamestate:
 		-1: $Button.text = "START"
 		0: $Button.text = "RESUME"
-		1: $Button.text = "2X SPEED"
-		2: $Button.text = "PAUSE"
+		1: $Button.text = "PAUSE"
 		
 	
 	
@@ -49,7 +48,7 @@ func _on_button_pressed() -> void:
 		match level:
 			1:
 				match wave:
-					1: enemies=[["EnemyTopHat",0,1],["EnemyJesterHat",0,1], ["EnemyJesterHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
+					1: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,1], ["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
 					2: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
 					3: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.5],["EnemyHardHat",0,1],["NecessaryEvil"]]
 					4: enemies=[["EnemyTopHat",0,1],["EnemyTopHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyTopHat",0,0.5],["EnemyTopHat",0,0.7],["EnemyHardHat",0,0.7],["EnemyTopHat",0,0.5],["NecessaryEvil"]]
@@ -103,7 +102,7 @@ func _on_button_pressed() -> void:
 	else:
 		Global.gamestate+=1
 		
-	if(Global.gamestate>2):
+	if(Global.gamestate>1):
 		Global.gamestate=0
 	
 	if(Global.gamestate>0):

@@ -190,14 +190,14 @@ horizontal_alignment = 1
 [node name="Finish" type="Area2D" parent="."]
 
 [node name="death" type="CollisionShape2D" parent="Finish"]
-position = Vector2(-77, 90)
+position = Vector2(-100, 90)
 shape = SubResource("RectangleShape2D_ovpxw")
 
 [node name="Finish2" type="Area2D" parent="."]
 position = Vector2(7, 205)
 
 [node name="death" type="CollisionShape2D" parent="Finish2"]
-position = Vector2(-77, 90)
+position = Vector2(-92, 90)
 shape = SubResource("RectangleShape2D_ovpxw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
