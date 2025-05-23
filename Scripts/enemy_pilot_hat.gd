@@ -60,8 +60,9 @@ func _physics_process(delta: float) -> void:
 					get_parent().queue_free()
 
 		
-		if area.name == "Objective":
+		if (area.name == "Objective" and enemies[self.name][2]==0):
 			area.get_parent().position = global_position
+			self.get_parent().speed=0.0007;
 
 func sway():
 	tween = create_tween()

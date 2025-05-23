@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 500;
+@export var speed = 800;
 var damage;
 var pierce = false;
 var lastobj = null;
@@ -14,7 +14,8 @@ func _physics_process(delta: float) -> void:
 	for area in areas:
 		if("Enemy" in area.get_parent().name and pierce==false):
 			if(area.get_parent()!=lastobj and area.get_parent()==targeted):
-				queue_free()
+				if(area.name!="AOE"):
+					queue_free()
 		elif("Enemy" in area.get_parent().name and pierce==true):
 			if(area.get_parent()!=lastobj and area.get_parent()==targeted):
 				var group = get_tree().get_nodes_in_group("alive")

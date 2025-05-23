@@ -16,8 +16,8 @@ var tween: Tween=null;
 
 var upgrades = [
 	[
-		{"price":20,"desc":"Longer range 1","state":0,"new":70},
-		{"price":40,"desc":"Longer range 2", "state":0, "new": 80},
+		{"price":20,"desc":"Longer range 1","state":0,"new":75},
+		{"price":40,"desc":"Longer range 2", "state":0, "new": 85},
 		{"price":60,"desc":"Ability to see air enemies."}
 	],
 	[
@@ -51,6 +51,12 @@ func _physics_process(delta: float) -> void:
 		
 		if(in_range.size()>0):
 			var target = in_range[0];
+			if(airvis==1):
+				for enemy in in_range:
+					if(enemy.enemies[enemy.name][2]==1):
+						target=enemy;
+						break;
+			
 			if(rdy == true and airvis>=target.enemies[target.name][2]):
 				$AnimatedSprite2D.play("attack")
 				var projectile = load("res://Scenes/projectile.tscn").instantiate()

@@ -4,11 +4,11 @@ var enemies = {
 	"EnemyTopHat": [5, 0.001, 0, 10], #HEALTH, SPEED, AIRVIS, MONEY
 	"EnemyTopHatSpeedy": [6, 0.00125, 0, 10],
 	"EnemyHardHat": [12, 0.0008, 0, 10],
-	"EnemyHardHatBlue": [36, 0.0008, 0, 10],
+	"EnemyHardHatBlue": [32, 0.0007, 0, 20],
 	"EnemyPropellerHat": [6, 0.0014, 1, 10],
 	"EnemyJesterHat": [7, 0.0008, 0, 10],
-	"EnemyFootballHat": [15, 0.0013, 0, 20],
-	"EnemyCrownHat": [300, 0.0009, 0],
+	"EnemyFootballHat": [20, 0.0013, 0, 20],
+	"EnemyCrownHat": [200, 0.0009, 0],
 }
 var health;
 var speed;
@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 			get_parent().stun=0
 
 	var areas = $Area2D.get_overlapping_areas()
-	if(self.name=="EnemyJesterHat"):
-		areas = $AOE.get_overlapping_areas()
+	#if(self.name=="EnemyJesterHat"):
+		#areas = $AOE.get_overlapping_areas()
 	for area in areas:
 		if area.name == "Projectile":
 			if(area.get_parent().name=="projectile_4"):
@@ -56,11 +56,13 @@ func _physics_process(delta: float) -> void:
 				if(health<=0):
 					Global.MP+=enemies[name][3]
 					get_parent().queue_free()
+					
 
 		
 		if area.name == "Objective":
 			if(area.get_parent().carrying==null or area.get_parent().carrying==self):
 				area.get_parent().position = global_position
+				self.get_parent().speed=0.0007;
 				
 				var path: PathFollow2D = self.get_parent()
 				if(path.progress_ratio<0.5):
