@@ -86,6 +86,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		Global.MP=Global.MP-50;
 		Global.cancel=false;
 		$MenuSFX.play()
+		$"../"._on_buy_button_pressed()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
@@ -190,6 +191,7 @@ func stunning():
 	elif($StunTimer.is_stopped()):
 		if(tween!=null):
 			tween.kill()
+			tween=null
 			$AnimatedSprite2D.modulate=Color.WHITE;
 
 

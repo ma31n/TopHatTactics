@@ -6,6 +6,10 @@ var spawnspeed = 1
 var win = 0;
 @export var level = 0
 var paths = []
+
+var buytween:Tween = null;
+var buyshow = 1;
+
 func _ready() -> void:
 	
 	Global.ogMP=Global.levelMP[self.name];
@@ -221,3 +225,17 @@ func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	Global.MP=Global.ogMP
 	Global.gamestate=Global.oggamestate
+
+
+func _on_buy_button_pressed() -> void:
+	if(buyshow==1):
+		buytween = create_tween()
+		buytween.tween_property($ICONS, "position", Vector2($ICONS.position.x+$ICONS.size.x,$ICONS.position.y),0.3)
+		buytween.play()
+		buyshow=0;
+	elif(buyshow==0):
+		buytween = create_tween()
+		buytween.tween_property($ICONS, "position", Vector2($ICONS.position.x-$ICONS.size.x,$ICONS.position.y),0.3)
+		buytween.play()
+		buyshow=1;
+	$MenuSFX.play();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dwfw6lvnci6yw"]
+[gd_scene load_steps=30 format=4 uid="uid://dwfw6lvnci6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_4r282"]
 [ext_resource type="Theme" uid="uid://bqkpjiev1o5at" path="res://Scenes/smalldetails.tres" id="2_6l13l"]
@@ -58,6 +58,57 @@ size = Vector2(80, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lws6h"]
 size = Vector2(35, 118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cso65"]
+bg_color = Color(0.054794, 0.243705, 0.243829, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.125241, 0.432928, 0.433122, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ippnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvdok"]
+bg_color = Color(0.290196, 0.8, 0.8, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.290196, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfq55"]
+bg_color = Color(0, 0, 0, 0.658824)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.290196, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sey2j"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.290196, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="Theme" id="Theme_cy4kn"]
+Button/styles/disabled = SubResource("StyleBoxFlat_cso65")
+Button/styles/focus = SubResource("StyleBoxEmpty_ippnf")
+Button/styles/hover = SubResource("StyleBoxFlat_xvdok")
+Button/styles/normal = SubResource("StyleBoxFlat_tfq55")
+Button/styles/pressed = SubResource("StyleBoxFlat_sey2j")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_4r282")
@@ -154,6 +205,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAACAAoAAAAAAAEAAAACAAsAAAABAAAAAAADAAo
 tile_set = ExtResource("2_l7xvb")
 
 [node name="walls" type="TileMapLayer" parent="Bg"]
+z_index = -1
 tile_map_data = PackedByteArray("AAAFAP7/AAABAAQAAAAFAP//AAABAAUAAAAFAAAAAAABAAYAAAAFAAEAAAABAAcAAAAGAP7/AAACAAQAAAAGAP//AAACAAUAAAAGAAAAAAACAAYAAAAGAAEAAAACAAcAAAAHAP7/AAADAAQAAAAHAP//AAADAAUAAAAHAAAAAAADAAYAAAAHAAEAAAADAAcAAAAIAP7/AAAEAAQAAAAIAP//AAAEAAUAAAAIAAAAAAAEAAYAAAAIAAEAAAAEAAcAAAAJAP7/AAAFAAQAAAAJAP//AAAFAAUAAAAJAAAAAAAFAAYAAAAJAAEAAAAFAAcAAAAKAP7/AAAGAAQAAAAKAP//AAAGAAUAAAAKAAAAAAAGAAYAAAAKAAEAAAAGAAcAAAALAP7/AAABAAQAAAALAP//AAABAAUAAAALAAAAAAABAAYAAAALAAEAAAABAAcAAAAMAP7/AAACAAQAAAAMAP//AAACAAUAAAAMAAAAAAACAAYAAAAMAAEAAAACAAcAAAANAP7/AAADAAQAAAANAP//AAADAAUAAAANAAAAAAADAAYAAAANAAEAAAADAAcAAAAOAP7/AAAEAAQAAAAOAP//AAAEAAUAAAAOAAAAAAAEAAYAAAAOAAEAAAAEAAcAAAAPAP7/AAAFAAQAAAAPAP//AAAFAAUAAAAPAAAAAAAFAAYAAAAPAAEAAAAFAAcAAAAQAP7/AAAGAAQAAAAQAP//AAAGAAUAAAAQAAAAAAAGAAYAAAAQAAEAAAAGAAcAAAARAP7/AAABAAQAAAARAP//AAABAAUAAAARAAAAAAABAAYAAAARAAEAAAABAAcAAAASAP7/AAACAAQAAAASAP//AAACAAUAAAASAAAAAAACAAYAAAASAAEAAAACAAcAAAATAP7/AAADAAQAAAATAP//AAADAAUAAAATAAAAAAADAAYAAAATAAEAAAADAAcAAAAUAP7/AAAEAAQAAAAUAP//AAAEAAUAAAAUAAAAAAAEAAYAAAAUAAEAAAAEAAcAAAAVAP7/AAAFAAQAAAAVAP//AAAFAAUAAAAVAAAAAAAFAAYAAAAVAAEAAAAFAAcAAAAWAP7/AAAGAAQAAAAWAP//AAAGAAUAAAAWAAAAAAAGAAYAAAAWAAEAAAAGAAcAAAAXAP7/AAABAAQAAAAXAP//AAABAAUAAAAXAAAAAAABAAYAAAAXAAEAAAABAAcAAAAYAP7/AAACAAQAAAAYAP//AAACAAUAAAAYAAAAAAACAAYAAAAYAAEAAAACAAcAAAAZAP7/AAABAAQAAAAZAP//AAABAAUAAAAZAAAAAAABAAYAAAAZAAEAAAABAAcAAAAaAP7/AAACAAQAAAAaAP//AAACAAUAAAAaAAAAAAACAAYAAAAaAAEAAAACAAcAAAAbAP7/AAADAAQAAAAbAP//AAADAAUAAAAbAAAAAAADAAYAAAAbAAEAAAADAAcAAAAcAP7/AAAEAAQAAAAcAP//AAAEAAUAAAAcAAAAAAAEAAYAAAAcAAEAAAAEAAcAAAAdAP7/AAAFAAQAAAAdAP//AAAFAAUAAAAdAAAAAAAFAAYAAAAdAAEAAAAFAAcAAAAeAP7/AAAGAAQAAAAeAP//AAAGAAUAAAAeAAAAAAAGAAYAAAAeAAEAAAAGAAcAAAAiAP7/AAABAAQAAAAiAP//AAABAAUAAAAiAAAAAAABAAYAAAAiAAEAAAABAAcAAAAjAP7/AAACAAQAAAAjAP//AAACAAUAAAAjAAAAAAACAAYAAAAjAAEAAAACAAcAAAAkAP7/AAADAAQAAAAkAP//AAADAAUAAAAkAAAAAAADAAYAAAAkAAEAAAADAAcAAAAlAP7/AAAEAAQAAAAlAP//AAAEAAUAAAAlAAAAAAAEAAYAAAAlAAEAAAAEAAcAAAAmAP7/AAAFAAQAAAAmAP//AAAFAAUAAAAmAAAAAAAFAAYAAAAmAAEAAAAFAAcAAAAnAP7/AAAGAAQAAAAnAP//AAAGAAUAAAAnAAAAAAAGAAYAAAAnAAEAAAAGAAcAAAD8//7/AAABAAQAAAD8////AAABAAUAAAD8/wAAAAABAAYAAAD8/wEAAAABAAcAAAD9//7/AAACAAQAAAD9////AAACAAUAAAD9/wAAAAACAAYAAAD9/wEAAAACAAcAAAD+//7/AAADAAQAAAD+////AAADAAUAAAD+/wAAAAADAAYAAAD+/wEAAAADAAcAAAD///7/AAAEAAQAAAD/////AAAEAAUAAAD//wAAAAAEAAYAAAD//wEAAAAEAAcAAAAAAP7/AAAFAAQAAAAAAP//AAAFAAUAAAAAAAAAAAAFAAYAAAAAAAEAAAAFAAcAAAABAP7/AAAGAAQAAAABAP//AAAGAAUAAAABAAAAAAAGAAYAAAABAAEAAAAGAAcAAAA=")
 tile_set = ExtResource("3_qa4km")
 
@@ -264,6 +316,16 @@ offset_right = 83.0
 offset_bottom = 101.0
 text = "50 EACH"
 
+[node name="BuyButton" type="Button" parent="ICONS"]
+offset_left = -17.0
+offset_top = 96.0
+offset_right = 33.0
+offset_bottom = 113.0
+rotation = 4.71239
+theme = SubResource("Theme_cy4kn")
+theme_override_font_sizes/font_size = 11
+text = "BUY"
+
 [node name="MenuSFX" type="AudioStreamPlayer2D" parent="." groups=["SFX"]]
 stream = ExtResource("9_knipw")
 max_polyphony = 10000000
@@ -280,3 +342,4 @@ script = ExtResource("13_ibb5u")
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Finish" to="." method="_on_finish_area_entered"]
 [connection signal="area_entered" from="Finish2" to="." method="_on_finish_2_area_entered"]
+[connection signal="pressed" from="ICONS/BuyButton" to="." method="_on_buy_button_pressed"]

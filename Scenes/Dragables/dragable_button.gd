@@ -13,4 +13,4 @@ func _on_pressed() -> void:
 		turret.z_index=5;
 		Global.cancel=true;
 		$"../../".add_child(turret)
-		
+		$"../../"._on_buy_button_pressed()

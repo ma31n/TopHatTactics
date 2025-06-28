@@ -215,6 +215,7 @@ func stunning():
 	elif($StunTimer.is_stopped()):
 		if(tween_stun!=null):
 			tween_stun.kill()
+			tween=null
 			$AnimatedSprite2D.modulate=Color.WHITE;
 
 func tweening():

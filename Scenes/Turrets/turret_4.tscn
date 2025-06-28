@@ -260,6 +260,7 @@ wait_time = 10.0
 
 [node name="Control" type="Control" parent="."]
 visible = false
+z_index = 50
 layout_mode = 3
 anchors_preset = 0
 offset_right = 244.0

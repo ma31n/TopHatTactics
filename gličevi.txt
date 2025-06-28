@@ -9,3 +9,11 @@ some missing x on third path+
 baseball sound when placed+
 close upgrade tabs when defeated/won+
 
+z indexi pozadine u lvl3+
+stunning animation doesn't always play+
+
+dodaj options
+
+
+
+

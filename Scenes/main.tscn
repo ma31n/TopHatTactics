@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://ddu7c5a5f717a"]
+[gd_scene load_steps=31 format=4 uid="uid://ddu7c5a5f717a"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jmla6"]
 [ext_resource type="PackedScene" uid="uid://cukihyasod6he" path="res://Scenes/objective.tscn" id="1_lk6rx"]
@@ -20,6 +20,57 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -25.9935, 400.936, 0, 0, 0, 0, 159, 403, 0, 0, 0, 0, 161.409, 300.84, 0, 0, 0, 0, 259.619, 301.861, 0, 0, 0, 0, 260, 403, 0, 0, 0, 0, 339.791, 402.979, 0, 0, 0, 0, 339.791, 303.904, 0, 0, 0, 0, 437, 303.904, 0, 0, 0, 0, 434.996, 191.551, 0, 0, 0, 0, 307.723, 190.529, 0, 0, 0, 0, 306.72, 239.556, 0, 0, 0, 0, 83.2409, 239.556, 0, 0, 0, 0, 83.2409, 190.529, 0, 0, 0, 0, -80.1097, 191.551)
 }
 point_count = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcoay"]
+bg_color = Color(0.054794, 0.243705, 0.243829, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.125241, 0.432928, 0.433122, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uudhc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc01t"]
+bg_color = Color(0.290196, 0.8, 0.8, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.290196, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ua1w5"]
+bg_color = Color(0, 0, 0, 0.658824)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.290196, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sibr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.290196, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="Theme" id="Theme_eqsxc"]
+Button/styles/disabled = SubResource("StyleBoxFlat_mcoay")
+Button/styles/focus = SubResource("StyleBoxEmpty_uudhc")
+Button/styles/hover = SubResource("StyleBoxFlat_mc01t")
+Button/styles/normal = SubResource("StyleBoxFlat_ua1w5")
+Button/styles/pressed = SubResource("StyleBoxFlat_0sibr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovpxw"]
 size = Vector2(98, 93)
@@ -178,6 +229,17 @@ offset_right = 83.0
 offset_bottom = 101.0
 text = "50 EACH"
 
+[node name="BuyButton" type="Button" parent="ICONS"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 100.0
+offset_right = 33.0
+offset_bottom = 117.0
+rotation = 4.71239
+theme = SubResource("Theme_eqsxc")
+theme_override_font_sizes/font_size = 11
+text = "BUY"
+
 [node name="Currency" type="Label" parent="."]
 z_index = 500
 offset_left = 516.0
@@ -281,5 +343,6 @@ max_polyphony = 10000
 [connection signal="pressed" from="ColorRect/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="ICONS/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="area_entered" from="Finish" to="." method="_on_finish_area_entered"]
 [connection signal="area_entered" from="Finish2" to="." method="_on_finish_area_entered"]

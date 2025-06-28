@@ -189,6 +189,7 @@ func stunning():
 	elif($StunTimer.is_stopped()):
 		if(tween!=null):
 			tween.kill()
+			tween=null
 			$AnimatedSprite2D.modulate=Color.WHITE;
 
 func placement_check():
