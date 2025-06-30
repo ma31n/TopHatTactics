@@ -308,6 +308,7 @@ offset_bottom = 101.0
 text = "50 EACH"
 
 [node name="BuyButton" type="Button" parent="ICONS"]
+layout_mode = 0
 offset_left = -17.0
 offset_top = 100.0
 offset_right = 33.0

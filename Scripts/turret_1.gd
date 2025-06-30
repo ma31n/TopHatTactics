@@ -201,6 +201,7 @@ func placement_check():
 		if(body.name=="Cancel"):
 			Global.cancel=false;
 			Global.global_selected=false;
+			$"../"._on_buy_button_pressed()
 			queue_free()
 
 		if(body.name=="Unplaceable" or body.name=="Turret"):

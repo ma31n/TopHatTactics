@@ -21,8 +21,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if(Input.is_action_just_pressed("ui_cancel")):
-		get_tree().reload_current_scene()
+	if(Input.is_action_just_pressed("ui_cancel") and win==0):
+		pausemenu()
 
 	if($ColorRect.size==Vector2(300,150)):
 		$ColorRect/RichTextLabel.visible=true;
@@ -55,6 +55,7 @@ func _on_button_pressed() -> void:
 	$MenuSFX.play()
 	if(Global.gamestate==-1):
 		Global.gamestate=1;
+		$Timer.start(spawnspeed/Global.gamestate)
 		match level:
 			1:
 				match wave:
@@ -110,13 +111,7 @@ func _on_button_pressed() -> void:
 					14: enemies=[["EnemyHardHatBlue",0,1],["EnemyFootballHat",0,1],["EnemyPropellerHat",0,0.7],["EnemyFootballHat",0,0.5],["EnemyPropellerHat",0,0.7],["EnemyFootballHat",0,0.5],["EnemyPropellerHat",0,0.7],["EnemyFootballHat",0,0.5],["EnemyPropellerHat",0,0.7],["EnemyPilotHat",1,0.2],["EnemyPilotHat",1,0.2],["EnemyFootballHat",0,0.1],["EnemyPilotHat",1,0.2],["EnemyPilotHat",1,0.2],["EnemyPilotHat",1,0.2],["EnemyFootballHat",0,0.1],["EnemyPilotHat",1,0.2],["EnemyPilotHat",1,0.2],["EnemyPropellerHat",0,0.1],["EnemyHardHatBlue",1,0.5],["EnemyJesterHat",1,0.7],["EnemyHardHatBlue",1,0.2],["EnemyTopHatSpeedy",1,0.2],["EnemyTopHatSpeedy",1,0.2],["EnemyTopHatSpeedy",1,0.2],["EnemyTopHatSpeedy",1,0.2],["EnemyFootballHat",1,1],["EnemyJesterHat",1,0.5],["EnemyFootballHat",1,1],["EnemyTopHat",0,1],["NecessaryEvil"]]
 					15: enemies=[["EnemyCrownHat",0,1],["NecessaryEvil"]]
 	else:
-		Global.gamestate+=1
-		
-	if(Global.gamestate>1):
-		Global.gamestate=0
-	
-	if(Global.gamestate>0):
-		$Timer.start(spawnspeed/Global.gamestate)
+		pausemenu()
 
 
 func _on_timer_timeout() -> void:
@@ -141,7 +136,8 @@ func _on_finish_area_entered(area: Area2D) -> void:
 	if area.name=="Objective":
 		Global.openedUpgrade=null;
 		win=-1
-		$Button.visible=false;
+		$Button.disabled=true;
+		$ICONS.visible=false;
 		Global.gamestate=0;
 		var tween = create_tween()
 		$ColorRect.visible=true
@@ -154,6 +150,8 @@ func _on_finish_area_entered(area: Area2D) -> void:
 func youwon():
 	Global.openedUpgrade=null;
 	win=1
+	$Button.disabled=true;
+	$ICONS.visible=false;
 	$ColorRect.z_index=10000;
 	var tween = create_tween()
 	$ColorRect.visible=true
@@ -166,9 +164,9 @@ func youwon():
 	
 func pausemenu():
 	Global.openedUpgrade=null;
-	if(Global.gamestate==1):
+	if(Global.gamestate>=1):
 		Global.gamestate=0;
-	else:
+	elif(Global.gamestate==0):
 		Global.gamestate=1;
 	$ColorRect.z_index=10000;
 	var tween = create_tween()
@@ -181,13 +179,13 @@ func pausemenu():
 		$ColorRect/retry.visible=true;
 		$ColorRect/back.visible=true;
 	else:
-		$ColorRect.visible=false;
 		tween.set_parallel(true)
 		tween.tween_property($ColorRect,"position",Vector2(288,162),0.1)
 		tween.tween_property($ColorRect,"size",Vector2(0,0),0.1)
+		tween.tween_property($ColorRect,"visible",false,0.1)
 		$ColorRect/retry.visible=true;
 		$ColorRect/back.visible=true;
-		
+		$Timer.start(spawnspeed/Global.gamestate)
 
 func _on_retry_pressed() -> void:
 	$MenuSFX.play()

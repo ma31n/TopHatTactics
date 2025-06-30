@@ -85,6 +85,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		Global.MP=Global.MP-50;
 		Global.cancel=false;
 		$AudioStreamPlayer2D.play()
+		$"../"._on_buy_button_pressed()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if((event is InputEventMouseButton and event.is_action_pressed("leftClick", false)) and dropped==true):
@@ -199,6 +200,7 @@ func placement_check():
 		if(body.name=="Cancel"):
 			Global.cancel=false;
 			Global.global_selected=false;
+			$"../"._on_buy_button_pressed()
 			queue_free()
 		
 		if(body.name=="Unplaceable" or body.name=="Turret"):
