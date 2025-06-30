@@ -2,9 +2,12 @@ extends Node2D
 
 var enemies = ["EnemyTopHat","EnemyHardHat","EnemyPropellerHat","EnemyFootballHat","EnemyPilotHat","EnemyJesterHat"]
 func _ready() -> void:
+	$Control/MusicVol.value=Global.musiclevel+$Control/MusicVol.max_value;
+	$Control/SFXVol.value=Global.sfxlevel+$Control/SFXVol.max_value;
 	$AudioStreamPlayer2D.stream=load("res://Top Hat Tactics Menu.ogg");
 	$AudioStreamPlayer2D.play(Global.musictime)
 	title()
+	
 
 func _physics_process(delta: float) -> void:
 

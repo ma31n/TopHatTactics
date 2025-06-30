@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cpwg8nugcbexx"]
+[gd_scene load_steps=34 format=4 uid="uid://cpwg8nugcbexx"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_0vt2t"]
 [ext_resource type="Theme" uid="uid://bqkpjiev1o5at" path="res://Scenes/smalldetails.tres" id="2_bcct6"]
@@ -13,6 +13,26 @@
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="11_ujdp5"]
 [ext_resource type="PackedScene" uid="uid://cw6a5haal0yq8" path="res://Scenes/cancel.tscn" id="12_1s2ei"]
 [ext_resource type="Script" path="res://Scripts/cancel.gd" id="13_sjrdn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhohq"]
+bg_color = Color(2.55093e-06, 0.486145, 0.557001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjom8"]
+bg_color = Color(0, 0.496892, 0.889283, 1)
+
+[sub_resource type="Theme" id="Theme_d4f21"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_lhohq")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_xjom8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oin7y"]
+bg_color = Color(3.99485e-06, 0.724802, 0.22149, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcb1n"]
+bg_color = Color(0, 0.72549, 0.219608, 1)
+
+[sub_resource type="Theme" id="Theme_02jx5"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_oin7y")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_tcb1n")
 
 [sub_resource type="Environment" id="Environment_pd874"]
 background_mode = 3
@@ -170,6 +190,46 @@ offset_top = 110.0
 offset_right = 222.0
 offset_bottom = 139.0
 text = "BACK TO MAIN MENU"
+
+[node name="MusicVol" type="HSlider" parent="ColorRect"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 138.0
+offset_right = 335.0
+offset_bottom = 154.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_d4f21")
+max_value = 50.0
+step = 5.0
+value = 50.0
+
+[node name="MusicLabel" type="RichTextLabel" parent="ColorRect/MusicVol"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 38.0
+offset_bottom = 4.0
+text = "Music"
+fit_content = true
+
+[node name="SFXVol" type="HSlider" parent="ColorRect"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 115.0
+offset_right = 335.0
+offset_bottom = 131.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_02jx5")
+max_value = 50.0
+step = 5.0
+value = 50.0
+
+[node name="SFXLabel" type="RichTextLabel" parent="ColorRect/SFXVol"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 38.0
+offset_bottom = 4.0
+text = "SFX"
+fit_content = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pd874")

@@ -11,7 +11,8 @@ var buytween:Tween = null;
 var buyshow = 1;
 
 func _ready() -> void:
-	
+	$ColorRect/MusicVol.value=Global.musiclevel+$ColorRect/MusicVol.max_value;
+	$ColorRect/SFXVol.value=Global.sfxlevel+$ColorRect/MusicVol.max_value;
 	Global.ogMP=Global.levelMP[self.name];
 	Global.MP=Global.levelMP[self.name];
 	Global.gamestate=-1;
@@ -21,7 +22,18 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if(Input.is_action_just_pressed("ui_cancel") and win==0):
+	if($ColorRect/MusicVol.value>=$ColorRect/MusicVol.step):
+		Global.musiclevel = -$ColorRect/MusicVol.max_value+$ColorRect/MusicVol.value;
+	else:
+		Global.musiclevel = -100;
+	
+	if($ColorRect/SFXVol.value>=$ColorRect/SFXVol.step):
+		Global.sfxlevel = -$ColorRect/SFXVol.max_value+$ColorRect/SFXVol.value;
+	else:
+		Global.sfxlevel = -100;
+	
+	
+	if(Input.is_action_just_pressed("ui_cancel") and win==0 and Global.gamestate!=-1):
 		pausemenu()
 
 	if($ColorRect.size==Vector2(300,150)):

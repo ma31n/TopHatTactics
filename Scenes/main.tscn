@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://ddu7c5a5f717a"]
+[gd_scene load_steps=37 format=4 uid="uid://ddu7c5a5f717a"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jmla6"]
 [ext_resource type="PackedScene" uid="uid://cukihyasod6he" path="res://Scenes/objective.tscn" id="1_lk6rx"]
@@ -14,6 +14,26 @@
 [ext_resource type="PackedScene" uid="uid://cw6a5haal0yq8" path="res://Scenes/cancel.tscn" id="10_ilidf"]
 [ext_resource type="Script" path="res://Scripts/cancel.gd" id="11_03wmw"]
 [ext_resource type="AudioStream" uid="uid://cnpa1x1d1r35n" path="res://SFX/ButtonClick.ogg" id="12_ciqs5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfj0s"]
+bg_color = Color(2.55093e-06, 0.486145, 0.557001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2ro3"]
+bg_color = Color(0, 0.496892, 0.889283, 1)
+
+[sub_resource type="Theme" id="Theme_1kyoo"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vfj0s")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_y2ro3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msrnq"]
+bg_color = Color(3.99485e-06, 0.724802, 0.22149, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp788"]
+bg_color = Color(0, 0.72549, 0.219608, 1)
+
+[sub_resource type="Theme" id="Theme_ycu3p"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_msrnq")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_gp788")
 
 [sub_resource type="Curve2D" id="Curve2D_xw07t"]
 _data = {
@@ -157,6 +177,46 @@ offset_top = 110.0
 offset_right = 222.0
 offset_bottom = 141.0
 text = "BACK TO MAIN MENU"
+
+[node name="MusicVol" type="HSlider" parent="ColorRect"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 138.0
+offset_right = 335.0
+offset_bottom = 154.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_1kyoo")
+max_value = 50.0
+step = 5.0
+value = 50.0
+
+[node name="MusicLabel" type="RichTextLabel" parent="ColorRect/MusicVol"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 38.0
+offset_bottom = 4.0
+text = "Music"
+fit_content = true
+
+[node name="SFXVol" type="HSlider" parent="ColorRect"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 115.0
+offset_right = 335.0
+offset_bottom = 131.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_ycu3p")
+max_value = 50.0
+step = 5.0
+value = 50.0
+
+[node name="SFXLabel" type="RichTextLabel" parent="ColorRect/SFXVol"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 38.0
+offset_bottom = 4.0
+text = "SFX"
+fit_content = true
 
 [node name="Objective" parent="." instance=ExtResource("1_lk6rx")]
 position = Vector2(425, 170)

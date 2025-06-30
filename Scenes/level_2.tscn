@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dwfw6lvnci6yw"]
+[gd_scene load_steps=36 format=4 uid="uid://dwfw6lvnci6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_4r282"]
 [ext_resource type="Theme" uid="uid://bqkpjiev1o5at" path="res://Scenes/smalldetails.tres" id="2_6l13l"]
@@ -37,6 +37,26 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 521, -28, 0, 0, 0, 0, 520, 104, 0, 0, 0, 0, 358, 103, 0, 0, 0, 0, 358, 186, 0, 0, 0, 0, 520, 185, 0, 0, 0, 0, 522, 297, 0, 0, 0, 0, 360, 293, 0, 0, 0, 0, 361, 251, 0, 0, 0, 0, 246, 248, 0, 0, 0, 0, 246, 300, 0, 0, 0, 0, 58, 299, 0, 0, 0, 0, 56, 188, 0, 0, 0, 0, 230, 184, 0, 0, 0, 0, 229, 102, 0, 0, 0, 0, 60, 102, 0, 0, 0, 0, 60, -27)
 }
 point_count = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h104y"]
+bg_color = Color(2.55093e-06, 0.486145, 0.557001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xwni"]
+bg_color = Color(0, 0.496892, 0.889283, 1)
+
+[sub_resource type="Theme" id="Theme_s3p5d"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_h104y")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_7xwni")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndf4u"]
+bg_color = Color(3.99485e-06, 0.724802, 0.22149, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df4tq"]
+bg_color = Color(0, 0.72549, 0.219608, 1)
+
+[sub_resource type="Theme" id="Theme_lihun"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ndf4u")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_df4tq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpc7c"]
 size = Vector2(119, 104.5)
@@ -168,6 +188,46 @@ offset_top = 110.0
 offset_right = 222.0
 offset_bottom = 139.0
 text = "BACK TO MAIN MENU"
+
+[node name="MusicVol" type="HSlider" parent="ColorRect"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 138.0
+offset_right = 335.0
+offset_bottom = 154.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_s3p5d")
+max_value = 50.0
+step = 5.0
+value = 50.0
+
+[node name="MusicLabel" type="RichTextLabel" parent="ColorRect/MusicVol"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 38.0
+offset_bottom = 4.0
+text = "Music"
+fit_content = true
+
+[node name="SFXVol" type="HSlider" parent="ColorRect"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 115.0
+offset_right = 335.0
+offset_bottom = 131.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_lihun")
+max_value = 50.0
+step = 5.0
+value = 50.0
+
+[node name="SFXLabel" type="RichTextLabel" parent="ColorRect/SFXVol"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 38.0
+offset_bottom = 4.0
+text = "SFX"
+fit_content = true
 
 [node name="Label" type="Label" parent="."]
 z_index = 500
