@@ -88,7 +88,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		$"../"._on_buy_button_pressed()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if((event is InputEventMouseButton and event.is_action_pressed("leftClick", false)) and dropped==true):
+	if((event is InputEventMouseButton and event.is_action_pressed("leftClick", false)) and dropped==true and Global.gamestate!=0):
 		$Control.visible=!$Control.visible
 		Global.openedUpgrade=$Control;
 		$MenuSFX.play()
