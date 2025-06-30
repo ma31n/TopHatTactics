@@ -166,8 +166,11 @@ func pausemenu():
 	Global.openedUpgrade=null;
 	if(Global.gamestate>=1):
 		Global.gamestate=0;
+		$Timer.paused=true;
 	elif(Global.gamestate==0):
 		Global.gamestate=1;
+		$Timer.paused=false;
+
 	$ColorRect.z_index=10000;
 	var tween = create_tween()
 	if($ColorRect.visible==false):
@@ -185,7 +188,6 @@ func pausemenu():
 		tween.tween_property($ColorRect,"visible",false,0.1)
 		$ColorRect/retry.visible=true;
 		$ColorRect/back.visible=true;
-		$Timer.start(spawnspeed/Global.gamestate)
 
 func _on_retry_pressed() -> void:
 	$MenuSFX.play()
