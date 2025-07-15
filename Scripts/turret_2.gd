@@ -31,7 +31,8 @@ var upgrades = [
 ]
 func _ready() -> void:
 	$AudioStreamPlayer2D.stream=load("res://SFX/HatPlace.ogg")
-	$AudioStreamPlayer2D.play()
+	if(get_parent().name!="MainMenu"):
+		$AudioStreamPlayer2D.play()
 	
 	$Area2D/CollisionShape2D.shape = $Area2D/CollisionShape2D.shape.duplicate()
 	
